@@ -1,0 +1,101 @@
+/* ==========================================
+   CSS Web Styling - Session 5
+   Topik: CSS Syntax, Selectors, & Text Styling
+   ========================================== */
+
+/* 1. Universal Selector (*) */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: hsl(200, 15%, 20%); /* Warna teks utama menggunakan HSL */
+}
+
+/* 2. Element Selector */
+body {
+    background-color: #f9fbe7; /* Warna latar belakang umum (Hex Code) */
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: bolder;
+    color: rgb(27, 94, 32); /* Hijau gelap menggunakan RGB */
+    text-shadow: 2px 2px 4px #c8e6c9; /* Efek bayangan teks (X, Y, blur, warna) */
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2e7d32; /* Hijau sedang menggunakan Hex Code */
+}
+
+h3 {
+    font-size: 20px;
+    color: forestgreen; /* Menggunakan Keyword warna */
+    text-decoration: underline; /* Dekorasi garis bawah */
+}
+
+p {
+    font-size: 16px;
+    text-align: justify; /* Perataan paragraf rata kanan-kiri */
+}
+
+/* 3. Class Selector (.namaClass) */
+.section-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 26px;
+    text-align: center; /* Perataan teks di tengah */
+    text-shadow: 1px 1px 2px gray;
+}
+
+.profile-desc {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.highlight-text {
+    color: crimson; /* Keyword warna */
+    font-weight: bold;
+    text-decoration: overline; /* Dekorasi garis di atas */
+}
+
+/* 4. ID Selector (#namaID) */
+#main-header {
+    background-color: #e8f5e9;
+    text-align: center;
+}
+
+#footer-note {
+    font-size: 13px;
+    color: gray;
+    text-align: center;
+    text-decoration: line-through; /* Dekorasi coret tengah */
+}
+
+/* 5. Descendant Selector (selector1 selector2) */
+/* Memilih semua tag 'a' yang berada di dalam tag 'nav' */
+nav a {
+    color: #1b5e20;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none; /* Menghilangkan garis bawah default pada link */
+}
+
+/* 6. Child Selector (selector1 > selector2) */
+/* Memilih tag 'h2' yang merupakan anak langsung dari tag 'main' */
+main > h2 {
+    text-decoration: underline;
+}
+
+/* 7. Adjacent Selector (selector1 + selector2) */
+/* Memilih tag 'p' pertama yang terletak tepat di bawah tag 'h3' */
+h3 + p {
+    font-weight: bold;
+    color: rgb(46, 125, 50);
+}
+
+/* 8. General Sibling Selector (selector1 ~ selector2) */
+/* Memilih semua tag 'p' bersaudara yang terletak setelah tag 'h3' */
+h3 ~ p {
+    font-style: italic;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jurnal STEM - Laporan Proyek (Sesi 5)</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- 1. METODE EXTERNAL CSS (Metode Utama yang Direkomendasikan) -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- 2. METODE INTERNAL CSS (Sebagai contoh pembanding belajar siswa) -->
+    <style>
+        /* Internal CSS akan menimpa gaya dari External CSS untuk elemen spesifik di bawah ini */
+        .internal-demo {
+            color: darkorange;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Bagian Header Halaman dengan ID Selector -->
+    <header id="main-header">
+        <h1>Jurnal STEM: Proyek Penyaring Air Sederhana</h1>
+        
+        <!-- Contoh penggunaan Internal CSS -->
+        <p class="internal-demo">
+            *Paragraf ini menggunakan gaya dari <i>Internal CSS</i> di dalam tag head.
+        </p>
+    </header>
+
+    <!-- Bagian Navbar dengan Descendant Selector (nav a) -->
+    <nav>
+        <a href="index.html">Halaman Utama (Laporan)</a> | 
+        <a href="laporan/data_tabel.html">Data Pengamatan (Tabel)</a> | 
+        <a href="laporan/recommendation.html">Rekomendasi Alat Desain</a>
+    </nav>
+
+    <!-- Bagian Main Halaman -->
+    <main>
+        <!-- Judul section menggunakan Class Selector -->
+        <h2 class="section-title">Profil Peneliti Muda</h2>
+        
+        <a href="profilepic.png">
+            <img src="profilepic.png" width="150" height="150" alt="Foto Profil Siswa" />
+        </a>
+        
+        <!-- Paragraf profil menggunakan Class Selector -->
+        <p class="profile-desc">
+            Nama Lengkap: <b>Primastuti Dewi</b><br />
+            Kelas: <i>X-A SMA Negeri</i><br />
+            Kelompok: <strong>Kelompok 1 (Kategori Lingkungan Hidup)</strong>
+        </p>
+
+        <hr />
+
+        <h2 class="section-title">Laporan Proyek: Rancang Bangun Alat Filtrasi Air</h2>
+        
+        <!-- 3. METODE INLINE CSS (Gaya ditulis langsung pada atribut tag HTML) -->
+        <p style="color: blue; font-style: italic; text-align: center;">
+            *Catatan: Kalimat ini ditulis menggunakan metode <b>Inline CSS</b> untuk dipelajari siswa.
+        </p>
+
+        <h3>1. Latar Belakang (Science)</h3>
+        <!-- Paragraf ini akan terpengaruh oleh Adjacent Selector (h3 + p) karena tepat di bawah h3 -->
+        <p>
+            Air bersih adalah komponen vital bagi kehidupan manusia dan makhluk hidup lainnya.
+        </p>
+        <!-- Paragraf ini akan terpengaruh oleh Sibling Selector (h3 ~ p) -->
+        <p>
+            Melalui rekayasa fisik sederhana, lumpur dan zat pencemar dapat disaring menggunakan susunan media alami yang mudah diperoleh di sekitar kita.
+        </p>
+
+        <h3>2. Alat dan Bahan (Engineering)</h3>
+        <p>
+            Berikut adalah daftar komponen yang kami persiapkan untuk merakit filter air:<br />
+            - Botol plastik bekas ukuran 1.5 Liter<br />
+            - Kapas atau tisu steril (sebagai filter paling bawah)<br />
+            - <span class="highlight-text">Arang aktif / Karbon aktif</span> (untuk adsorpsi)<br />
+            - Pasir bersih (menyaring partikel kecil)<br />
+            - Kerikil kecil & Kerikil besar (menyaring partikel kasar)<br />
+            - Gunting / Cutter
+        </p>
+
+        <h3>3. Langkah Kerja (Engineering)</h3>
+        <p>
+            Susunan media diurutkan dari bawah ke atas agar penyaringan berjalan efektif (kapas paling bawah, kerikil besar paling atas). Air kotor dituangkan secara perlahan dari atas.
+        </p>
+
+        <h3>4. Glosarium Sains Proyek</h3>
+        <dl>
+            <dt><b>Filtrasi</b></dt>
+            <dd>Proses penyaringan fisik zat padat dari cairan.</dd>
+            
+            <dt><b>Adsorpsi</b></dt>
+            <dd>Penyerapan bau dan warna oleh permukaan arang aktif.</dd>
+        </dl>
+
+        <h3>5. Skema Desain Visual</h3>
+        <img src="filter_schema.png" width="300" height="300" alt="Skema Susunan Lapisan Filter Air Sederhana" />
+    </main>
+
+    <!-- Bagian Footer Dokumen dengan ID Selector -->
+    <footer>
+        <hr />
+        <h5 id="footer-note" align="center">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1.</h5>
+    </footer>
+
+</body>
+
+</html>

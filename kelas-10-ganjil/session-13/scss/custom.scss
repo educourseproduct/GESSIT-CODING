@@ -1,0 +1,58 @@
+/* =======================================================
+   Kustomisasi Bootstrap via Sass (SCSS) - Sesi 13 (Bootstrap)
+   Fokus: Variabel Overrides, Nesting, & Reusable Mixins
+   ======================================================= */
+
+// 1. VARIABEL OVERRIDES (Didefinisikan SEBELUM impor Bootstrap)
+$primary: #1b4d3e;     // Forest Green kustom (Simbol air bersih & alam)
+$success: #10b981;     // Emerald Green kustom (Uji kelayakan berhasil)
+$body-bg: #f8fafc;     // Slate-50 kustom (Latar belakang modern abu-abu terang)
+$enable-gradients: true; // Mengaktifkan efek gradien lembut bawaan Bootstrap
+$enable-shadows: true;   // Mengaktifkan efek bayangan bawaan Bootstrap
+$border-radius: 0.75rem;  // Membuat sudut komponen lebih membulat halus
+
+// 2. IMPOR BOOTSTRAP UTAMA
+// Karena folder node_modules berada di tingkat proyek session-13/
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// 3. CUSTOM MIXIN (Fungsi reusable untuk efek transisi)
+@mixin hover-transition($scale: 1.04, $rotate: 0deg) {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    &:hover {
+        transform: scale($scale) rotate($rotate);
+    }
+}
+
+// 4. NESTED SCSS RULES & MIXIN USAGE
+.custom-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: $white;
+    @mixin card-lift {
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(27, 77, 62, 0.08);
+            border-color: rgba($primary, 0.3) !important;
+        }
+    }
+    @include hover-transition(1, 0deg);
+    @include card-lift;
+}
+
+.schema-img {
+    @include hover-transition(1.03, 1deg);
+}
+
+.profile-pic {
+    @include hover-transition(1.05, -2deg);
+    cursor: pointer;
+}
+
+.table-success-light {
+    background-color: tint-color($primary, 92%) !important;
+    color: shade-color($primary, 20%) !important;
+}
+
+// Utilitas perataan teks justify tambahan
+.text-justify {
+    text-align: justify;
+}

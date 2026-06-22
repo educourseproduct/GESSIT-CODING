@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jurnal STEM - Data Pengamatan (Tabel)</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body>
+
+    <!-- Bagian Header Halaman -->
+    <header>
+        <h1>Jurnal STEM: Proyek Penyaring Air Sederhana</h1>
+    </header>
+
+    <!-- Bagian Menu Navigasi Sesi 3 -->
+    <menu>
+        <a href="index.html">Halaman Utama (Laporan)</a> | 
+        <a href="data_tabel.html">Data Pengamatan (Tabel)</a> | 
+        <a href="recommendation.html">Rekomendasi Alat Desain</a>
+    </menu>
+
+    <!-- Bagian Artikel Utama -->
+    <article>
+        <h2>Data Hasil Pengujian Kuantitatif</h2>
+        <p align="justify">
+            Berikut adalah data hasil pengujian dari 3 sampel air sebelum dan setelah melalui proses penyaringan. Pengujian mengukur dua indikator sains utama, yaitu tingkat keasaman (pH) dan kekeruhan (kondisi fisik).
+        </p>
+
+        <!-- Implementasi Elemen Table dengan style="width:100%" dan caption -->
+        <table border="1" style="width:100%" cellpadding="8" cellspacing="0">
+            <!-- Judul Tabel (Table Caption) -->
+            <caption><b>Tabel 1. Perbandingan Kualitas Air Sebelum dan Setelah Filtrasi</b></caption>
+            
+            <thead>
+                <tr bgcolor="#e6e6e6">
+                    <th rowspan="2">No.</th>
+                    <th rowspan="2">Asal Sampel Air</th>
+                    <!-- Menggunakan colspan untuk menggabungkan kolom -->
+                    <th colspan="2">Tingkat Keasaman (pH)</th>
+                    <th colspan="2">Kekeruhan & Bau (Kondisi Fisik)</th>
+                    <th rowspan="2">Kecepatan Aliran (L/menit)</th>
+                </tr>
+                <tr bgcolor="#e6e6e6">
+                    <th>Sebelum</th>
+                    <th>Setelah</th>
+                    <th>Sebelum</th>
+                    <th>Setelah</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td align="center">1</td>
+                    <td>Air Selokan Belakang Sekolah</td>
+                    <td align="center">5.8 (Asam)</td>
+                    <td align="center">7.0 (Netral)</td>
+                    <td>Sangat Hitam & Berbau Busuk</td>
+                    <td>Jernih & Tidak Berbau</td>
+                    <td align="center">0.08 L/menit</td>
+                </tr>
+                <tr>
+                    <td align="center">2</td>
+                    <td>Air Sumur Warga (Kuning)</td>
+                    <td align="center">6.2 (Asam Lemah)</td>
+                    <td align="center">7.2 (Netral)</td>
+                    <td>Kuning Keruh & Bau Besi</td>
+                    <td>Jernih & Bebas Bau</td>
+                    <td align="center">0.12 L/menit</td>
+                </tr>
+                <tr>
+                    <td align="center">3</td>
+                    <td>Air Hujan Penampungan</td>
+                    <td align="center">6.5 (Asam Lemah)</td>
+                    <td align="center">7.0 (Netral)</td>
+                    <td>Keruh Berpasir</td>
+                    <td>Sangat Jernih</td>
+                    <td align="center">0.10 L/menit</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Analisis Data Matematika</h3>
+        <p>
+            Berdasarkan tabel pengukuran kecepatan aliran air, kita dapat menentukan nilai rata-rata kecepatan filtrasi dari penyaring yang dirancang:<br />
+            <strong>Kecepatan Rata-rata = (0.08 + 0.12 + 0.10) / 3 = 0.10 Liter per menit.</strong>
+        </p>
+        <p align="justify">
+            Secara sains dan rekayasa, rancangan filter ini berhasil menetralisir tingkat keasaman (pH) dari kondisi asam lemah/sedang (5.8 - 6.5) menjadi netral (7.0 - 7.2) berkat penggunaan lapisan arang aktif yang optimal.
+        </p>
+    </article>
+
+    <!-- Bagian Footer Dokumen -->
+    <footer>
+        <p>Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1.</p>
+    </footer>
+
+</body>
+
+</html>

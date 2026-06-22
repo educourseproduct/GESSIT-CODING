@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jurnal STEM - Laporan Proyek (Sesi 7)</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    
+    <!-- Mengimpor Google Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan style.css untuk layout Flexbox & Grid -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Header & Navbar Sticky (Glassmorphism) -->
+    <nav>
+        <!-- Judul Navigasi Utama -->
+        <span class="nav-logo">Jurnal STEM</span>
+        <div class="nav-links-wrapper">
+            <a class="nav-link" href="index.html">Halaman Utama</a>
+            <a class="nav-link" href="laporan/data_tabel.html">Data Pengamatan</a>
+            <a class="nav-link" href="laporan/recommendation.html">Rekomendasi Alat Desain</a>
+        </div>
+    </nav>
+
+    <!-- Main Container (Modern Card Layout) -->
+    <main>
+        
+        <!-- ================= HERO SECTION (Flexbox Split) ================= -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1>Rancang Bangun Alat Penyaring Air Sederhana</h1>
+                <p class="hero-subtitle">
+                    Sebuah dokumentasi proyek eksperimen Kelas X SMA Negeri untuk memecahkan krisis air bersih menggunakan media filtrasi alami secara terstruktur dan ilmiah.
+                </p>
+            </div>
+            
+            <!-- Profil Peneliti (Relative Container & Circular Photo) -->
+            <div class="profile-container">
+                <div class="badge-group">Kelompok 1</div>
+                <a href="profilepic.png">
+                    <img class="profile-pic" src="profilepic.png" width="100" height="100" alt="Foto Profil Siswa Sesi 7" />
+                </a>
+                <div class="profile-meta">
+                    <span class="profile-name"><b>Primastuti Dewi</b></span><br />
+                    <span class="profile-class">Kelas X-A SMA</span>
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+        <!-- ================= SEKSI 1: LATAR BELAKANG SAINS (Asymmetrical Flexbox Split) ================= -->
+        <section class="split-section">
+            <!-- Kolom Kiri: Kutipan Besar (Sains) -->
+            <div class="quote-box-col">
+                <p class="quote-text">
+                    "Air bersih adalah komponen vital bagi seluruh kehidupan. Mengurangi pencemaran air adalah tanggung jawab rekayasa kita bersama."
+                </p>
+            </div>
+            
+            <!-- Kolom Kanan: Penjelasan Ilmiah -->
+            <div class="content-box-col">
+                <h2>Latar Belakang Proyek</h2>
+                <p>
+                    Krisis ketersediaan air bersih merupakan isu lingkungan hidup yang krusial. Banyak sumber air permukaan tercemar lumpur, pasir, dan zat organik sehingga keruh serta berbau.
+                </p>
+                <p>
+                    Melalui rekayasa filtrasi fisik, kita dapat membersihkan air tersebut secara mekanis menggunakan material berpori di sekitar kita.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= SEKSI 2: ALAT DAN BAHAN (3-Column Grid Cards) ================= -->
+        <section class="cards-section">
+            <h2>Komponen Alat & Bahan (Engineering)</h2>
+            <p>Berikut adalah komponen yang dipersiapkan untuk merakit casing dan media penyaring air:</p>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <h4>1. Botol Plastik</h4>
+                    <p>Ukuran 1.5 Liter sebagai wadah susunan filter.</p>
+                </div>
+                <div class="card">
+                    <h4>2. Kapas Steril</h4>
+                    <p>Sebagai lapisan penyaring partikel halus di paling bawah.</p>
+                </div>
+                <div class="card">
+                    <h4>3. Arang Aktif</h4>
+                    <p>Berfungsi untuk adsorpsi (menyerap bau, warna, & zat kimia).</p>
+                </div>
+                <div class="card">
+                    <h4>4. Pasir Bersih</h4>
+                    <p>Lapisan penyaring lumpur halus dan koloid terlarut.</p>
+                </div>
+                <div class="card">
+                    <h4>5. Kerikil Kecil</h4>
+                    <p>Penyaring kotoran berukuran sedang sebelum masuk ke pasir.</p>
+                </div>
+                <div class="card">
+                    <h4>6. Kerikil Besar</h4>
+                    <p>Lapisan paling atas untuk menyaring sampah ukuran kasar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SEKSI 3: LANGKAH KERJA TIMELINE (Vertical Flex Timeline) ================= -->
+        <section class="timeline-section">
+            <h2>Prosedur Perakitan Alat (Engineering)</h2>
+            <p>Lapisan media penyaring disusun secara berurutan agar menghasilkan filtrasi optimal:</p>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h4>Persiapan Casing Filter</h4>
+                        <p>Potong bagian bawah botol plastik bekas sekitar 5 cm menggunakan cutter. Balikkan botol sehingga corong menghadap ke bawah.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h4>Penyusunan Filter Halus</h4>
+                        <p>Masukkan kapas steril di posisi paling bawah botol, diikuti dengan arang aktif/karbon aktif di atasnya secara merata.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h4>Penyusunan Media Kasar</h4>
+                        <p>Tuangkan lapisan pasir silika di atas arang, disusul dengan kerikil kecil, dan terakhir kerikil besar di bagian paling atas.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h4>Pengujian Penyaring</h4>
+                        <p>Tuangkan air keruh dari atas botol secara perlahan dan amati kejernihan air hasil filtrasi yang keluar dari mulut botol.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SEKSI 4: GLOSARIUM & DESAIN (Split Column) ================= -->
+        <section class="split-section">
+            <!-- Kolom Kiri: Glosarium Istilah -->
+            <div class="glossary-box-col">
+                <h2>Glosarium Sains</h2>
+                <dl>
+                    <dt><b>Filtrasi</b></dt>
+                    <dd>Pemisahan fisik partikel padat dari cairan menggunakan media berpori.</dd>
+                    <br />
+                    <dt><b>Adsorpsi</b></dt>
+                    <dd>Penyerapan zat terlarut pada permukaan media penyerap seperti arang aktif.</dd>
+                    <br />
+                    <dt><b>Turbiditas</b></dt>
+                    <dd>Tingkat kekeruhan air akibat partikel tersuspensi seperti lumpur.</dd>
+                </dl>
+            </div>
+            
+            <!-- Kolom Kanan: Skema Visual -->
+            <div class="schema-box-col">
+                <h2>Rancangan Skema Filter</h2>
+                <img class="schema-img" src="filter_schema.png" width="320" height="320" alt="Skema Susunan Lapisan Filter Air Sederhana" />
+                <br />
+                <small><i>*Arahkan kursor ke gambar di atas untuk efek rotasi transisi visual.</i></small>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Tombol Bantuan Fixed di sudut kanan bawah viewport -->
+    <a class="fixed-badge" href="#main-header">Kembali ke Atas</a>
+
+    <!-- Footer Dokumen -->
+    <footer>
+        <hr />
+        <h5 id="footer-note" align="center">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1.</h5>
+    </footer>
+
+</body>
+
+</html>

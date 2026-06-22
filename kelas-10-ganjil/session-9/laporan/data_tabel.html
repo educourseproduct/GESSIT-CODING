@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1" />
+    <title>Jurnal STEM - Data Pengamatan (Bootstrap)</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    
+    <!-- Mengimpor Bootstrap 5.3.3 CSS dari CDN resmi -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    
+    <!-- Mengimpor Google Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan style.css kustom menggunakan jalur relatif mundur satu folder -->
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body id="top">
+
+    <!-- Navbar Sticky Modern -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top border-bottom py-3 shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo Navbar -->
+            <a class="navbar-brand fw-bold text-success fs-4 mb-0" href="../index.html">Jurnal STEM</a>
+            
+            <!-- Link Navigasi bergaya Tombol Kapsul Bootstrap -->
+            <div class="d-flex gap-2">
+                <a class="btn btn-outline-success btn-sm rounded-pill px-3" href="../index.html">Halaman Utama</a>
+                <a class="btn btn-success btn-sm rounded-pill px-3 active" href="data_tabel.html">Data Pengamatan</a>
+                <a class="btn btn-outline-success btn-sm rounded-pill px-3" href="recommendation.html">Rekomendasi Alat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container Utama -->
+    <main class="container py-5">
+        
+        <!-- Judul Halaman -->
+        <h2 class="display-6 fw-bold text-success mb-4">Data Hasil Pengujian Kuantitatif (Tabel)</h2>
+        
+        <!-- Profil Peneliti Singkat di Atas Tabel -->
+        <div class="card border border-light-subtle shadow-sm bg-white p-3 mb-4 rounded-3 d-inline-flex flex-row align-items-center gap-3">
+            <img class="profile-pic rounded-circle border border-2 border-success p-1" src="../profilepic.png" width="50" height="50" alt="Foto Profil Siswa" />
+            <div>
+                <p class="mb-0 small text-secondary">Penanggung Jawab Data:</p>
+                <p class="mb-0 fw-bold small text-dark">Primastuti Dewi (Kelompok 1)</p>
+            </div>
+        </div>
+
+        <!-- Tabel Responsif dengan Kelas Bootstrap -->
+        <div class="table-responsive shadow-sm border border-light-subtle rounded-3 mb-5">
+            <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                <!-- Judul Tabel di bagian atas -->
+                <caption class="ps-3 py-2 small bg-light text-secondary border-bottom">
+                    <b>Tabel 1. Perbandingan Kualitas Air Sebelum dan Setelah Filtrasi</b>
+                </caption>
+                
+                <!-- Header Tabel Bergaya Modern -->
+                <thead class="table-success text-center">
+                    <tr>
+                        <th class="py-3 align-middle" rowspan="2">No.</th>
+                        <th class="py-3 align-middle" rowspan="2">Asal Sampel Air</th>
+                        <!-- Menggabungkan kolom dengan colspan -->
+                        <th class="py-3 align-middle" colspan="2">Tingkat Keasaman (pH)</th>
+                        <th class="py-3 align-middle" colspan="2">Kondisi Fisik (Kekeruhan & Bau)</th>
+                        <th class="py-3 align-middle" rowspan="2">Kecepatan Aliran (L/menit)</th>
+                    </tr>
+                    <tr>
+                        <th class="py-2">Sebelum</th>
+                        <th class="py-2">Setelah</th>
+                        <th class="py-2">Sebelum</th>
+                        <th class="py-2">Setelah</th>
+                    </tr>
+                </thead>
+                
+                <!-- Isi Tabel -->
+                <tbody>
+                    <tr>
+                        <td class="text-center fw-bold">1</td>
+                        <td class="fw-semibold">Air Selokan Belakang Sekolah</td>
+                        <td class="text-center text-danger-emphasis bg-danger-subtle">5.8 (Asam)</td>
+                        <td class="text-center text-success-emphasis bg-success-subtle">7.0 (Netral)</td>
+                        <td class="text-muted">Sangat Hitam & Berbau Busuk</td>
+                        <td class="fw-medium text-success">Jernih & Tidak Berbau</td>
+                        <td class="text-center">0.08 L/menit</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center fw-bold">2</td>
+                        <td class="fw-semibold">Air Sumur Warga (Kuning)</td>
+                        <td class="text-center text-danger-emphasis bg-danger-subtle">6.2 (Asam Lemah)</td>
+                        <td class="text-center text-success-emphasis bg-success-subtle">7.2 (Netral)</td>
+                        <td class="text-muted">Kuning Keruh & Bau Besi</td>
+                        <td class="fw-medium text-success">Jernih & Bebas Bau</td>
+                        <td class="text-center">0.12 L/menit</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center fw-bold">3</td>
+                        <td class="fw-semibold">Air Hujan Penampungan</td>
+                        <td class="text-center text-danger-emphasis bg-danger-subtle">6.5 (Asam Lemah)</td>
+                        <td class="text-center text-success-emphasis bg-success-subtle">7.0 (Netral)</td>
+                        <td class="text-muted">Keruh Berpasir</td>
+                        <td class="fw-medium text-success">Sangat Jernih</td>
+                        <td class="text-center">0.10 L/menit</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Analisis Data Deskriptif -->
+        <div class="card border border-light-subtle shadow-sm p-4 rounded-4 bg-white">
+            <h3 class="fw-bold text-success mb-3 fs-4" style="border-bottom: 2px solid #e9ecef; padding-bottom: 8px;">Analisis Data Matematika</h3>
+            <p class="text-justify text-secondary">
+                Berdasarkan kecepatan alir filtrasi di atas, diperoleh rata-rata waktu pemrosesan adalah <strong>0.10 Liter/menit</strong>. Kecepatan ini cukup ideal untuk skala rumah tangga kecil.
+            </p>
+            <p class="text-justify text-secondary mb-0">
+                Peningkatan pH air menjadi netral (7.0 - 7.2) membuktikan bahwa penambahan lapisan arang aktif dan pasir silika sukses menetralkan sifat asam serta menyerap polutan berbahaya secara fisikokimia.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Tombol Bantuan Fixed Melayang di sudut viewport -->
+    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-4 px-4 py-2" href="#top" style="z-index: 1000; box-shadow: 0 4px 15px rgba(25, 135, 84, 0.35) !important;">
+        Kembali ke Atas
+    </a>
+
+    <!-- Footer Dokumen -->
+    <footer class="text-center py-4 mt-5 bg-white text-muted">
+        <p class="small mb-0">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1. Didukung oleh Bootstrap 5.</p>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle dari CDN resmi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

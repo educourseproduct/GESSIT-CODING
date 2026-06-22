@@ -1,0 +1,60 @@
+/* =======================================================
+   CSS Tambahan (Supplementary CSS) - Sesi 9 (Bootstrap)
+   Fokus: Sentuhan Estetika Modern & Efek Transisi Interaktif
+   ======================================================= */
+
+/* --- 1. Font Global & Perataan --- */
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f4f6f5; /* Latar belakang abu-abu kehijauan lembut */
+    color: #374151; /* Warna teks utama Slate */
+}
+
+/* Utilitas perataan teks justify yang tidak ada di Bootstrap 5 */
+.text-justify {
+    text-align: justify;
+}
+
+/* --- 2. Pemanis Kartu (Custom Card Hover Effect) --- */
+.custom-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+    border-color: #198754 !important; /* Warna sukses hijau Bootstrap */
+}
+
+/* --- 3. Efek Transisi Hover Timeline --- */
+.timeline-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateX(6px);
+    border-color: #198754 !important;
+}
+
+/* --- 4. Animasi Rotasi & Perbesaran Skema Gambar --- */
+.schema-img {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.schema-img:hover {
+    transform: scale(1.04) rotate(2deg);
+}
+
+/* --- 5. Animasi Foto Profil Bulat --- */
+.profile-pic {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-pic:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+/* --- 6. Kustomisasi Bayangan Footer & Garis Tepi --- */
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}

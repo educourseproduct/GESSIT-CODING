@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jurnal STEM - Rekomendasi (Sesi 7)</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    
+    <!-- Mengimpor Google Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan ke berkas style.css menggunakan jalur relatif mundur satu folder -->
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+
+    <!-- Header & Navbar Sticky (Glassmorphism) -->
+    <nav>
+        <span class="nav-logo">Jurnal STEM</span>
+        <div class="nav-links-wrapper">
+            <a class="nav-link" href="../index.html">Halaman Utama</a>
+            <a class="nav-link" href="data_tabel.html">Data Pengamatan</a>
+            <a class="nav-link" href="recommendation.html">Rekomendasi Alat Desain</a>
+        </div>
+    </nav>
+
+    <!-- Main Container (Menggunakan Box Model Card Layout) -->
+    <main>
+        <h2 class="section-title">Rekomendasi Alat Desain (Grid Layout)</h2>
+        <p>
+            Berikut adalah daftar alat bantu (tools) online yang disusun menggunakan sistem **CSS Grid (2-Dimensional)**. Struktur ini membagi halaman menjadi 3 kolom secara seimbang:
+        </p>
+
+        <!-- Grid Container: Mengatur tata letak kartu baris & kolom -->
+        <div class="grid-cards">
+            
+            <!-- Kartu Utama / Terpilih (Menerapkan Grid Child Property: grid-column: 1/3) -->
+            <div class="card featured-card">
+                <h3>1. Color Picker Online (Utama)</h3>
+                <p align="justify">
+                    Alat bantu penentu skema warna visual halaman web secara harmonis dan modern melalui konversi warna HEX, RGB, dan HSL langsung di browser.<br /><br />
+                    Tautan Alat: <a href="https://imagecolorpicker.com/" target="_blank">Buka Image Color Picker</a>
+                </p>
+            </div>
+
+            <!-- Kartu Biasa 1 -->
+            <div class="card">
+                <h3>2. Flaticon</h3>
+                <p align="justify">
+                    Koleksi ikon bertema sains, biologi, rekayasa, dan edukasi gratis untuk menghias visual laporan.<br /><br />
+                    Tautan Alat: <a href="https://www.flaticon.com/" target="_blank">Buka Website Flaticon</a>
+                </p>
+            </div>
+
+            <!-- Kartu Biasa 2 -->
+            <div class="card">
+                <h3>3. Favicon.cc</h3>
+                <p align="justify">
+                    Rancang dan edit ikon kustom berkas favicon.ico untuk dipasang pada tab browser website pribadi.<br /><br />
+                    Tautan Alat: <a href="https://www.favicon.cc/" target="_blank">Buka Website Favicon.cc</a>
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Tombol Bantuan Fixed di sudut kanan bawah viewport -->
+    <a class="fixed-badge" href="../index.html">Halaman Utama</a>
+
+    <!-- Footer Halaman dengan ID Selector -->
+    <footer>
+        <hr />
+        <h5 id="footer-note" align="center">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1.</h5>
+    </footer>
+
+</body>
+
+</html>

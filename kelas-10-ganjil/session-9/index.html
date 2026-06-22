@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1" />
+    <title>Jurnal STEM - Laporan Proyek (Sesi 9 Bootstrap)</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    
+    <!-- Mengimpor Bootstrap 5.3.3 CSS dari CDN resmi -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    
+    <!-- Mengimpor Google Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan style.css kustom untuk pemanis visual & animasi -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="top">
+
+    <!-- Navbar Sticky Modern dengan Utilitas Bootstrap -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top border-bottom py-3 shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo Navbar -->
+            <a class="navbar-brand fw-bold text-success fs-4 mb-0" href="index.html">Jurnal STEM</a>
+            
+            <!-- Link Navigasi bergaya Tombol Kapsul Bootstrap -->
+            <div class="d-flex gap-2">
+                <a class="btn btn-success btn-sm rounded-pill px-3 active" href="index.html">Halaman Utama</a>
+                <a class="btn btn-outline-success btn-sm rounded-pill px-3" href="laporan/data_tabel.html">Data Pengamatan</a>
+                <a class="btn btn-outline-success btn-sm rounded-pill px-3" href="laporan/recommendation.html">Rekomendasi Alat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container Utama -->
+    <main class="container py-5">
+        
+        <!-- ================= HERO SECTION (Bootstrap Grid 2-Kolom) ================= -->
+        <section class="row align-items-center mb-5 gy-4">
+            <!-- Kolom Teks Judul -->
+            <div class="col-md-7">
+                <h1 class="display-5 fw-bold text-success mb-3">Rancang Bangun Alat Penyaring Air Sederhana</h1>
+                <p class="lead text-muted text-justify">
+                    Sebuah dokumentasi proyek eksperimen Kelas X SMA Negeri untuk memecahkan krisis air bersih menggunakan media filtrasi alami secara terstruktur dan ilmiah.
+                </p>
+            </div>
+            
+            <!-- Kolom Profil Peneliti (Bootstrap Card + Badge Absolute) -->
+            <div class="col-md-5">
+                <div class="card shadow-sm border border-light-subtle bg-white p-4 position-relative rounded-4 text-center">
+                    <!-- Badge status absolute bawaan Bootstrap -->
+                    <span class="position-absolute top-0 end-0 m-3 badge bg-danger rounded-pill px-3 py-2 fw-bold" style="font-size: 11px;">Kelompok 1</span>
+                    
+                    <!-- Foto Profil dengan Image Styling Bootstrap -->
+                    <img class="profile-pic rounded-circle border border-3 border-success p-1 mx-auto mb-3" src="profilepic.png" width="100" height="100" alt="Foto Profil Siswa Sesi 9" />
+                    
+                    <div>
+                        <h5 class="fw-bold mb-1">Primastuti Dewi</h5>
+                        <p class="text-secondary small mb-0">Kelas X-A SMA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5 opacity-25" />
+
+        <!-- ================= SEKSI 1: LATAR BELAKANG SAINS (Asymmetric Grid) ================= -->
+        <section class="row align-items-stretch mb-5 gy-4">
+            <!-- Kolom Kiri: Kutipan Indah (Grid 5-kolom) -->
+            <div class="col-md-5">
+                <div class="h-100 bg-success-subtle border-start border-5 border-success p-4 rounded-end d-flex align-items-center">
+                    <p class="fst-italic text-success fs-5 mb-0" style="font-family: Georgia, serif;">
+                        "Air bersih adalah komponen vital bagi seluruh kehidupan. Mengurangi pencemaran air adalah tanggung jawab rekayasa kita bersama."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Kolom Kanan: Penjelasan Ilmiah (Grid 7-kolom) -->
+            <div class="col-md-7 d-flex flex-column justify-content-center">
+                <h2 class="fw-bold text-success mb-3">Latar Belakang Proyek</h2>
+                <p class="text-justify">
+                    Krisis ketersediaan air bersih merupakan isu lingkungan hidup yang krusial. Banyak sumber air permukaan tercemar lumpur, pasir, dan zat organik sehingga keruh serta berbau.
+                </p>
+                <p class="text-justify">
+                    Melalui rekayasa filtrasi fisik, kita dapat membersihkan air tersebut secara mekanis menggunakan material berpori di sekitar kita.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= SEKSI 2: ALAT DAN BAHAN (Grid Cards 3-Kolom) ================= -->
+        <section class="mb-5">
+            <h2 class="fw-bold text-success mb-3">Komponen Alat & Bahan (Engineering)</h2>
+            <p class="text-muted mb-4">Berikut adalah komponen yang dipersiapkan untuk merakit casing dan media penyaring air:</p>
+            
+            <!-- Grid pembagian 3 kolom di desktop (lg), 2 di tablet (sm), dan 1 di hp -->
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">1. Botol Plastik</h5>
+                            <p class="card-text text-secondary small">Ukuran 1.5 Liter sebagai wadah susunan filter.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">2. Kapas Steril</h5>
+                            <p class="card-text text-secondary small">Sebagai lapisan penyaring partikel halus di paling bawah.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">3. Arang Aktif</h5>
+                            <p class="card-text text-secondary small">Berfungsi untuk adsorpsi (menyerap bau, warna, & zat kimia).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">4. Pasir Bersih</h5>
+                            <p class="card-text text-secondary small">Lapisan penyaring lumpur halus dan koloid terlarut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">5. Kerikil Kecil</h5>
+                            <p class="card-text text-secondary small">Penyaring kotoran berukuran sedang sebelum masuk ke pasir.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">6. Kerikil Besar</h5>
+                            <p class="card-text text-secondary small">Lapisan paling atas untuk menyaring sampah ukuran kasar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SEKSI 3: LANGKAH KERJA TIMELINE (Flex Stack) ================= -->
+        <section class="mb-5">
+            <h2 class="fw-bold text-success mb-3">Prosedur Perakitan Alat (Engineering)</h2>
+            <p class="text-muted mb-4">Lapisan media penyaring disusun secara berurutan agar menghasilkan filtrasi optimal:</p>
+            
+            <!-- Susunan Flexbox vertikal dengan gap renggang -->
+            <div class="d-flex flex-column gap-3">
+                <div class="card border border-light-subtle shadow-sm timeline-card rounded-3">
+                    <div class="card-body d-flex align-items-start gap-4">
+                        <span class="display-5 fw-bold text-success-light" style="opacity: 0.4; line-height: 1;">01</span>
+                        <div>
+                            <h5 class="fw-bold text-success mb-1">Persiapan Casing Filter</h5>
+                            <p class="text-secondary small mb-0">Potong bagian bawah botol plastik bekas sekitar 5 cm menggunakan cutter. Balikkan botol sehingga corong menghadap ke bawah.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card border border-light-subtle shadow-sm timeline-card rounded-3">
+                    <div class="card-body d-flex align-items-start gap-4">
+                        <span class="display-5 fw-bold text-success-light" style="opacity: 0.4; line-height: 1;">02</span>
+                        <div>
+                            <h5 class="fw-bold text-success mb-1">Penyusunan Filter Halus</h5>
+                            <p class="text-secondary small mb-0">Masukkan kapas steril di posisi paling bawah botol, diikuti dengan arang aktif/karbon aktif di atasnya secara merata.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border border-light-subtle shadow-sm timeline-card rounded-3">
+                    <div class="card-body d-flex align-items-start gap-4">
+                        <span class="display-5 fw-bold text-success-light" style="opacity: 0.4; line-height: 1;">03</span>
+                        <div>
+                            <h5 class="fw-bold text-success mb-1">Penyusunan Media Kasar</h5>
+                            <p class="text-secondary small mb-0">Tuangkan lapisan pasir silika di atas arang, disusul dengan kerikil kecil, dan terakhir kerikil besar di bagian paling atas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border border-light-subtle shadow-sm timeline-card rounded-3">
+                    <div class="card-body d-flex align-items-start gap-4">
+                        <span class="display-5 fw-bold text-success-light" style="opacity: 0.4; line-height: 1;">04</span>
+                        <div>
+                            <h5 class="fw-bold text-success mb-1">Pengujian Penyaring</h5>
+                            <p class="text-secondary small mb-0">Tuangkan air keruh dari atas botol secara perlahan dan amati kejernihan air hasil filtrasi yang keluar dari mulut botol.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SEKSI 4: GLOSARIUM & SKEMA (Bootstrap Grid 2-Kolom) ================= -->
+        <section class="row align-items-start mb-5 gy-4">
+            <!-- Kolom Kiri: Glosarium (Grid 7-kolom) -->
+            <div class="col-md-7">
+                <div class="card border border-light-subtle shadow-sm p-4 rounded-4">
+                    <h2 class="fw-bold text-success mb-4">Glosarium Sains</h2>
+                    <dl class="mb-0">
+                        <dt class="fw-bold text-success fs-5">Filtrasi</dt>
+                        <dd class="text-secondary mb-3 text-justify">Pemisahan fisik partikel padat dari cairan menggunakan media berpori.</dd>
+                        
+                        <dt class="fw-bold text-success fs-5">Adsorpsi</dt>
+                        <dd class="text-secondary mb-3 text-justify">Penyerapan zat terlarut pada permukaan media penyerap seperti arang aktif.</dd>
+                        
+                        <dt class="fw-bold text-success fs-5">Turbiditas</dt>
+                        <dd class="text-secondary mb-0 text-justify">Tingkat kekeruhan air akibat partikel tersuspensi seperti lumpur.</dd>
+                    </dl>
+                </div>
+            </div>
+            
+            <!-- Kolom Kanan: Skema Visual (Grid 5-kolom) -->
+            <div class="col-md-5">
+                <div class="card border border-light-subtle shadow-sm p-4 rounded-4 text-center">
+                    <h2 class="fw-bold text-success mb-3">Rancangan Skema</h2>
+                    <img class="schema-img img-fluid rounded border p-2 bg-light mb-3 mx-auto" src="filter_schema.png" alt="Skema Susunan Lapisan Filter Air Sederhana" style="max-height: 260px; object-fit: contain;" />
+                    <p class="small text-muted mb-0"><i>*Sorot kursor ke gambar untuk memicu perbesaran dan rotasi skema.</i></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SEKSI 5: INSTRUKSI KESELAMATAN (Bootstrap Alert Component) ================= -->
+        <section class="mb-5">
+            <div class="alert alert-warning border-warning-subtle shadow-sm p-4 rounded-4 d-flex align-items-center gap-3" role="alert">
+                <span class="fs-2">⚠️</span>
+                <div>
+                    <h5 class="alert-heading fw-bold text-warning-emphasis mb-1">Penting untuk Keselamatan Sains!</h5>
+                    <p class="mb-0 small text-justify">
+                        Air hasil filtrasi fisik ini hanya bersih secara visual dari lumpur, bau, dan partikel kasar. Untuk kebutuhan konsumsi, air hasil saringan wajib direbus terlebih dahulu hingga mendidih guna melumpuhkan mikroorganisme dan bakteri berbahaya.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Tombol Bantuan Fixed Melayang di sudut viewport -->
+    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-4 px-4 py-2" href="#top" style="z-index: 1000; box-shadow: 0 4px 15px rgba(25, 135, 84, 0.35) !important;">
+        Kembali ke Atas
+    </a>
+
+    <!-- Footer Dokumen -->
+    <footer class="text-center py-4 mt-5 bg-white text-muted">
+        <p class="small mb-0">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1. Didukung oleh Bootstrap 5.</p>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle dari CDN resmi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

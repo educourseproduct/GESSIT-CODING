@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1" />
+    <title>Jurnal STEM - Rekomendasi (Bootstrap)</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    
+    <!-- Mengimpor Bootstrap 5.3.3 CSS dari CDN resmi -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    
+    <!-- Mengimpor Google Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan style.css kustom menggunakan jalur relatif mundur satu folder -->
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body id="top">
+
+    <!-- Navbar Sticky Modern -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top border-bottom py-3 shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo Navbar -->
+            <a class="navbar-brand fw-bold text-success fs-4 mb-0" href="../index.html">Jurnal STEM</a>
+            
+            <!-- Link Navigasi bergaya Tombol Kapsul Bootstrap -->
+            <div class="d-flex gap-2">
+                <a class="btn btn-outline-success btn-sm rounded-pill px-3" href="../index.html">Halaman Utama</a>
+                <a class="btn btn-outline-success btn-sm rounded-pill px-3" href="data_tabel.html">Data Pengamatan</a>
+                <a class="btn btn-success btn-sm rounded-pill px-3 active" href="recommendation.html">Rekomendasi Alat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container Utama -->
+    <main class="container py-5">
+        
+        <!-- Judul Halaman -->
+        <h2 class="display-6 fw-bold text-success mb-3">Rekomendasi Alat Desain</h2>
+        <p class="text-muted mb-4">
+            Berikut adalah daftar alat bantu (tools) online yang disusun secara responsif menggunakan sistem **Bootstrap 12-Column Grid**. 
+            Sistem ini membagi halaman menjadi proporsi lebar yang seimbang dan adaptif terhadap berbagai ukuran layar:
+        </p>
+
+        <!-- Container Grid 12-Kolom Bootstrap -->
+        <div class="row g-4">
+            
+            <!-- Kartu Utama / Terpilih (Menerapkan col-md-8 - Memakan 8 dari 12 kolom) -->
+            <div class="col-md-8">
+                <div class="card h-100 border border-success-subtle bg-success-subtle bg-opacity-25 shadow-sm custom-card rounded-4">
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <!-- Flexbox Header untuk Judul & Lencana -->
+                            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                                <h3 class="fw-bold text-success mb-0 border-0 pb-0 fs-4">1. Color Picker Online (Utama)</h3>
+                                <span class="badge bg-success rounded-pill px-3 py-2 fw-semibold" style="font-size: 11px;">Rekomendasi Utama</span>
+                            </div>
+                            <p class="text-secondary text-justify small mb-4">
+                                Alat bantu penentu skema warna visual halaman web secara harmonis dan modern melalui konversi warna HEX, RGB, dan HSL langsung di browser. Sangat direkomendasikan untuk mendesain skema warna proyek STEM kelompok.
+                            </p>
+                        </div>
+                        <!-- Tombol Tautan Aksi -->
+                        <a class="btn btn-success btn-sm rounded-pill px-4 align-self-start" href="https://imagecolorpicker.com/" target="_blank">Buka Image Color Picker &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kartu Pendukung 1 (Menerapkan col-md-4 - Memakan 4 dari 12 kolom) -->
+            <div class="col-md-4">
+                <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-4">
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="fw-bold text-success mb-3 border-0 pb-0 fs-4">2. Flaticon</h3>
+                            <p class="text-secondary text-justify small mb-4">
+                                Koleksi ikon bertema sains, biologi, rekayasa, dan edukasi gratis untuk menghias visual laporan proyek STEM Anda agar terlihat lebih menarik dan profesional.
+                            </p>
+                        </div>
+                        <a class="btn btn-outline-success btn-sm rounded-pill px-3 align-self-start" href="https://www.flaticon.com/" target="_blank">Buka Website Flaticon &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kartu Pendukung 2 (Menerapkan col-md-4 - Otomatis terlipat ke baris kedua karena total kolom baris pertama penuh: 8 + 4 = 12) -->
+            <div class="col-md-4">
+                <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-4">
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="fw-bold text-success mb-3 border-0 pb-0 fs-4">3. Favicon.cc</h3>
+                            <p class="text-secondary text-justify small mb-4">
+                                Rancang dan buat berkas ikon favorit kustom (`favicon.ico`) untuk dipasang pada tab browser website proyek STEM pribadi kelompok Anda.
+                            </p>
+                        </div>
+                        <a class="btn btn-outline-success btn-sm rounded-pill px-3 align-self-start" href="https://www.favicon.cc/" target="_blank">Buka Website Favicon.cc &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Tombol Bantuan Fixed Melayang di sudut viewport -->
+    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-4 px-4 py-2" href="#top" style="z-index: 1000; box-shadow: 0 4px 15px rgba(25, 135, 84, 0.35) !important;">
+        Kembali ke Atas
+    </a>
+
+    <!-- Footer Dokumen -->
+    <footer class="text-center py-4 mt-5 bg-white text-muted">
+        <p class="small mb-0">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1. Didukung oleh Bootstrap 5.</p>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle dari CDN resmi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

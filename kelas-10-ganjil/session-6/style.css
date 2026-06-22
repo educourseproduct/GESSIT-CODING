@@ -1,0 +1,185 @@
+/* =======================================================
+   CSS Advanced Styling - Session 6
+   Topik: Box Model, Positioning, & Interactive Animations
+   ======================================================= */
+
+/* --- 1. Reset Global & Gaya Teks Dasar (Sesi 5) --- */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: hsl(200, 15%, 20%);
+    box-sizing: border-box; /* Rekayasa box model modern */
+}
+
+body {
+    background-color: #f9fbe7;
+    line-height: 1.6;
+    margin: 0; /* Mereset margin default body */
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    color: rgb(27, 94, 32);
+    text-shadow: 2px 2px 4px #c8e6c9;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+h3 {
+    font-size: 20px;
+    color: forestgreen;
+    text-decoration: underline;
+}
+
+p {
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* --- 2. Implementasi Box Model (Sesi 6) --- */
+main {
+    width: 85%; /* Mengatur lebar konten */
+    max-width: 900px;
+    margin: 30px auto; /* Memusatkan kontainer di tengah layar */
+    padding: 25px; /* Memberi jarak dalam antara konten dan border */
+    border: 4px solid #2e7d32; /* Garis tepi tebal hijau */
+    border-radius: 12px; /* Membuat sudut membulat */
+    background-color: white;
+}
+
+.profile-pic {
+    border-radius: 50%; /* Membuat gambar profil melingkar sempurna */
+    border: 3px solid #2e7d32; /* Lingkaran border hijau */
+    padding: 4px; /* Jarak antara gambar dan border */
+    background-color: white;
+}
+
+/* --- 3. Implementasi Positioning (Sesi 6) --- */
+
+/* Sticky Navbar: Menempel di atas saat digulung (scroll) */
+nav {
+    position: sticky;
+    top: 0;
+    background-color: rgba(232, 245, 233, 0.95); /* Semi transparan */
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #2e7d32;
+    z-index: 100; /* Memastikan navbar berada di tumpukan teratas */
+}
+
+/* Relative Parent Container untuk Profil */
+.profile-container {
+    position: relative; /* Jangkar koordinat bagi child yang absolute */
+    padding: 20px;
+    background-color: #f1f8e9;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Absolute Child: Menempel melayang secara presisi di kanan atas parent */
+.badge-group {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: crimson;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Fixed Floating Button: Terkunci di sudut kanan bawah viewport layar */
+.fixed-badge {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2); /* Efek bayangan bay */
+}
+
+/* --- 4. Pseudo-Class, Transition, & Transform (Sesi 6) --- */
+
+/* Gaya Link Navigasi */
+.nav-link {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 5px;
+    border: 2px solid #2e7d32;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: white;
+    color: #2e7d32;
+    
+    /* Efek transisi halus untuk seluruh perubahan visual */
+    transition: all 0.3s ease;
+}
+
+/* Tautan yang sudah dikunjungi (Pseudo-Class :visited) */
+.nav-link:visited {
+    color: #1b5e20;
+}
+
+/* Interaksi Kursor Hover (Pseudo-Class :hover + Transform) */
+.nav-link:hover {
+    background-color: #2e7d32;
+    color: white;
+    
+    /* Transformasi memperbesar dan menggeser ke atas */
+    transform: scale(1.08) translateY(-3px);
+}
+
+/* Interaksi Kursor Klik (Pseudo-Class :active) */
+.nav-link:active {
+    /* Transformasi mengecilkan kembali saat ditekan */
+    transform: scale(0.95) translateY(0);
+}
+
+/* Animasi Putar & Perbesar pada Foto Profil saat di-hover */
+.profile-pic:hover {
+    transform: rotate(5deg) scale(1.08);
+}
+
+/* Efek Transisi pada Foto Profil */
+.profile-pic {
+    transition: transform 0.4s ease-in-out;
+}
+
+.fixed-badge:hover {
+    background-color: #1b5e20;
+    transform: scale(1.05);
+}
+
+.fixed-badge {
+    transition: all 0.2s ease-in-out;
+}
+
+/* --- 5. Uji Coba Selektor Lanjutan (Sesi 5) --- */
+/* Child Selector */
+main > h2 {
+    text-decoration: underline;
+}
+
+/* Adjacent Selector */
+h3 + p {
+    font-weight: bold;
+    color: rgb(46, 125, 50);
+}
+
+/* General Sibling Selector */
+h3 ~ p {
+    font-style: italic;
+}

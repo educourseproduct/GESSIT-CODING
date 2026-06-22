@@ -1,0 +1,16 @@
+{
+  "name": "bootstrap-custom-sass",
+  "version": "1.0.0",
+  "description": "Proyek STEM Kustomisasi Bootstrap 5 dengan Sass untuk Siswa Kelas X SMA",
+  "main": "index.html",
+  "scripts": {
+    "build-css": "sass scss/custom.scss css/custom.css",
+    "watch-css": "sass --watch scss/custom.scss:css/custom.css"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "sass": "^1.77.6"
+  }
+}

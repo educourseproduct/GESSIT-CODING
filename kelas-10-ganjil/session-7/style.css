@@ -1,0 +1,447 @@
+/* =======================================================
+   CSS Flexbox & Grid Layout - Session 7 (Premium Modern UI)
+   Topik: Tata Letak 1-Dimensi (Flexbox) & 2-Dimensi (Grid)
+   ======================================================= */
+
+/* --- 1. Reset Global & Tipografi Modern --- */
+* {
+    font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif; /* Menggunakan font modern */
+    color: #374151; /* Warna teks utama abu-abu gelap (Slate) */
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f6f5; /* Latar belakang abu-abu kehijauan lembut */
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #064e3b; /* Hijau gelap emerald */
+    margin: 0 0 10px 0;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #0f766e; /* Hijau teal */
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #047857; /* Hijau daun emerald */
+    border-bottom: 2px solid #e2e8f0; /* Garis bawah batas konten modern */
+    padding-bottom: 8px;
+    margin-top: 0;
+}
+
+p {
+    font-size: 15px;
+    color: #4b5563; /* Warna abu-abu sedang untuk kontras optimal */
+    text-align: justify;
+}
+
+/* --- 2. Advanced Box Model & Card Layout --- */
+main {
+    width: 90%;
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Border sangat tipis */
+    border-radius: 16px; /* Sudut membulat modern */
+    background-color: #ffffff; /* Latar belakang putih bersih */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05); /* Bayangan halus premium */
+}
+
+.profile-pic {
+    border-radius: 50%;
+    border: 3px solid #059669; /* Border hijau emerald */
+    padding: 3px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 3. Implementasi CSS Flexbox (Sesi 7) --- */
+
+/* Sticky Glassmorphic Navbar: Menempel di atas dengan efek blur */
+nav {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.85); /* Semi transparan */
+    backdrop-filter: blur(12px); /* Efek blur kaca (glassmorphism) */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    z-index: 100;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Kontainer Profil Flexbox */
+.profile-container {
+    position: relative;
+    padding: 24px;
+    background-color: #f8fafc; /* Latar kartu abu-abu muda slate */
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin: 20px 0;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+/* Baris Kolom Flexbox */
+.flex-info-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+/* Elemen Anak Flexbox Kolom (Sub-Card) */
+.flex-info-col {
+    flex-basis: 48%;
+    flex-grow: 1;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* --- 4. Implementasi CSS Grid (Sesi 7) --- */
+
+/* Grid Container untuk Galeri Rekomendasi */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+}
+
+/* Grid Child Item (Modern Card) */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transisi halus reaktif */
+}
+
+/* Grid Child Property: Kartu Sorotan Utama (Featured) */
+.featured-card {
+    grid-column: 1 / 3;
+    background-color: #f0fdf4; /* Warna hijau muda modern */
+    border-color: #a7f3d0;
+}
+
+/* --- 5. Positioning, Pseudo-Classes, & Animations (Sesi 6) --- */
+
+/* Lencana Profil Absolute */
+.badge-group {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #e11d48; /* Merah rose modern */
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px; /* Desain pil */
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Tombol Kembali ke Atas (Fixed) berbentuk Pil */
+.fixed-badge {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #059669;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px; /* Bentuk kapsul/pil */
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.3); /* Bayangan hijau menyala */
+    transition: all 0.3s ease;
+}
+
+.fixed-badge:hover {
+    background-color: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -3px rgba(5, 150, 105, 0.4);
+}
+
+/* Tombol Tautan Navbar bergaya Pil */
+.nav-link {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px; /* Bentuk pil */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: white;
+    color: #4b5563;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link:visited {
+    color: #4b5563; /* Menjaga konsistensi warna */
+}
+
+.nav-link:hover {
+    background-color: #059669;
+    color: white;
+    border-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+}
+
+.nav-link:active {
+    transform: scale(0.96) translateY(0);
+}
+
+/* Animasi Putar Foto Profil */
+.profile-pic {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-pic:hover {
+    transform: rotate(5deg) scale(1.06);
+}
+
+/* Animasi Hover Kartu Rekomendasi */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    border-color: #059669;
+}
+
+/* Catatan Kaki */
+#footer-note {
+    font-size: 12px;
+    color: #9ca3af;
+    text-align: center;
+    text-decoration: none;
+    font-weight: normal;
+    margin-top: 15px;
+}
+
+/* --- 6. Styling Tabel Modern --- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden; /* Agar sudut melingkar terpotong rapi */
+    border: 1px solid #e2e8f0;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #059669 !important; /* Latar header hijau emerald */
+    color: white !important;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc; /* Striping baris tabel abu-abu sangat muda */
+}
+
+/* --- 7. Layout Pendukung Wireframe Modern (Sesi 7) --- */
+
+/* Logo & Navbar Wrapper */
+.nav-logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: #064e3b;
+    margin-right: auto; /* Mendorong menu ke kanan secara otomatis (Flexbox) */
+}
+
+.nav-links-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+/* Hero Section Split Layout */
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.hero-text {
+    flex-basis: 60%;
+    flex-grow: 1;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 10px 0 0 0;
+}
+
+/* Redefinisi Profile Container: Profil vertikal asimetris */
+.profile-container {
+    position: relative;
+    padding: 24px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; /* Tersusun vertikal di dalam kartu */
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    flex-basis: 32%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.profile-meta {
+    margin-top: 5px;
+}
+
+.profile-name {
+    font-size: 15px;
+    color: #374151;
+}
+
+.profile-class {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* Split Section Layout (Asymmetrical) */
+.split-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px;
+    margin: 35px 0;
+}
+
+.quote-box-col {
+    flex-basis: 38%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    background-color: #f0fdf4;
+    border-left: 5px solid #059669;
+    padding: 25px;
+    border-radius: 0 12px 12px 0;
+}
+
+.quote-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    font-style: italic;
+    color: #064e3b;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content-box-col, .glossary-box-col {
+    flex-basis: 58%;
+    flex-grow: 1;
+}
+
+/* Timeline Layout */
+.timeline-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(6px);
+    border-color: #059669;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.timeline-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #34d399; /* Hijau emerald terang */
+    line-height: 1;
+}
+
+.timeline-content {
+    flex-grow: 1;
+}
+
+.timeline-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #047857;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Glossary & Schema Split */
+.schema-box-col {
+    flex-basis: 38%;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.schema-img {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    transition: transform 0.4s ease-in-out;
+}
+
+.schema-img:hover {
+    transform: rotate(5deg) scale(1.04);
+}
+

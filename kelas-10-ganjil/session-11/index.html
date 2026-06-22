@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=device-width, initial-scale=1" />
+    <title>Jurnal STEM - Laporan Proyek (Sesi 11 Bootstrap Advanced)</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    
+    <!-- Mengimpor Bootstrap 5.3.3 CSS dari CDN resmi -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    
+    <!-- Mengimpor Google Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan style.css kustom untuk pemanis visual & animasi -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="top">
+
+    <!-- ================= NAVIGATION BAR DENGAN DROPDOWN & OFFCANVAS ================= -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top border-bottom py-3 shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo Navbar -->
+            <a class="navbar-brand fw-bold text-success fs-4 mb-0" href="index.html">Jurnal STEM</a>
+            
+            <!-- Elemen Navigasi Kanan (Offcanvas Trigger & Dropdown Menu) -->
+            <div class="d-flex gap-2 align-items-center">
+                <!-- Tombol Pemicu Offcanvas (Profil Tim) -->
+                <button class="btn btn-outline-success btn-sm rounded-pill px-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam" aria-controls="offcanvasTeam">
+                    👥 Profil Tim
+                </button>
+                
+                <!-- Komponen Dropdown untuk Pilihan Menu Laporan -->
+                <div class="dropdown">
+                    <button class="btn btn-success btn-sm rounded-pill px-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        📂 Dokumen Proyek
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-light-subtle rounded-3" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item active bg-success" href="index.html">Halaman Utama</a></li>
+                        <li><a class="dropdown-item" href="laporan/data_tabel.html">Laporan Hasil Pengamatan</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= OFFCANVAS COMPONENT (Bilah Samping Kiri) ================= -->
+    <div class="offcanvas offcanvas-start border-end border-light-subtle shadow" tabindex="-1" id="offcanvasTeam" aria-labelledby="offcanvasTeamLabel">
+        <div class="offcanvas-header bg-success-subtle py-4 border-bottom">
+            <h5 class="offcanvas-title fw-bold text-success" id="offcanvasTeamLabel">Anggota Kelompok 1</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="text-center py-3">
+                <!-- Foto Profil di Offcanvas yang memicu Modal saat diklik -->
+                <img class="profile-pic rounded-circle border border-3 border-success p-1 mb-3" src="profilepic.png" width="90" height="90" alt="Foto Ketua Kelompok" data-bs-toggle="modal" data-bs-target="#profileModal" />
+                <h5 class="fw-bold mb-1">Primastuti Dewi</h5>
+                <span class="badge bg-success rounded-pill px-3 mb-3" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#profileModal">Ketua Kelompok (Klik untuk Detail)</span>
+                <p class="text-muted small px-3">
+                    Bertanggung jawab atas rekayasa media filtrasi halus, pengolahan data tabel pengamatan, dan penulisan jurnal ilmiah proyek.
+                </p>
+            </div>
+            <hr class="opacity-25" />
+            <div class="px-2">
+                <h6 class="fw-bold text-secondary mb-3">Kontribusi Anggota Lain:</h6>
+                <div class="mb-3">
+                    <p class="mb-0 fw-bold small text-dark">2. Budi Santoso</p>
+                    <p class="mb-0 text-muted small">Merakit casing botol penyaring, menyiapkan gunting, cutter, dan isolasi penyangga.</p>
+                </div>
+                <div class="mb-3">
+                    <p class="mb-0 fw-bold small text-dark">3. Rara Fitriani</p>
+                    <p class="mb-0 text-muted small">Menyediakan material filtrasi alam (pasir silika, kerikil kecil, kerikil besar).</p>
+                </div>
+                <div class="mb-3">
+                    <p class="mb-0 fw-bold small text-dark">4. Ahmad Fauzi</p>
+                    <p class="mb-0 text-muted small">Melakukan uji kekeruhan pH awal dan mencatat waktu aliran debit filtrasi air.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL COMPONENT (Pop-Up Detail Profil) ================= -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow rounded-4 overflow-hidden">
+                <!-- Header Modal -->
+                <div class="modal-header bg-success text-white py-3">
+                    <h5 class="modal-title fw-bold" id="profileModalLabel">Kartu Identitas Peneliti</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <!-- Body Modal -->
+                <div class="modal-body text-center p-4">
+                    <img class="profile-pic rounded-circle border border-4 border-success p-1 mb-3 shadow-sm" src="profilepic.png" width="120" height="120" alt="Foto Profil Besar" />
+                    <h4 class="fw-bold text-success mb-1">Primastuti Dewi</h4>
+                    <p class="text-secondary small mb-3">Siswa Kelas X-A SMA Negeri</p>
+                    
+                    <div class="bg-light p-3 rounded-3 text-start small border border-light-subtle">
+                        <table class="table table-borderless table-sm mb-0">
+                            <tr>
+                                <td class="fw-bold text-secondary" style="width: 35%;">Peran Tim</td>
+                                <td class="text-dark">: Koordinator Kelompok & Sains</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-secondary">Fokus Praktikum</td>
+                                <td class="text-dark">: Meneliti arang aktif & pengujian pH air</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-secondary">Email Siswa</td>
+                                <td class="text-dark">: primastuti.dewi@siswa.sch.id</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Footer Modal -->
+                <div class="modal-footer bg-light py-2">
+                    <button type="button" class="btn btn-success rounded-pill px-4 btn-sm" data-bs-dismiss="modal">Tutup Profil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CAROUSEL COMPONENT (Visual Slideshow Header) ================= -->
+    <section id="carouselSTEM" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <!-- Indikator Slide -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselSTEM" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselSTEM" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselSTEM" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        
+        <!-- Wadah Utama Slide Gambar -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="experiment_lab.png" class="d-block w-100 carousel-img" alt="Eksperimen Kualitas Air" />
+                <div class="carousel-caption d-none d-md-block text-start">
+                    <h5 class="fw-bold text-success-light">Tahap 1: Pengujian Kualitas Air Awal</h5>
+                    <p class="small text-secondary-light">Menganalisis tingkat pH keasaman dan kekeruhan sampel air kotor sebelum dilakukan penyaringan fisik secara ilmiah.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="filter_schema.png" class="d-block w-100 carousel-img" alt="Skema Filter Air" style="object-position: center;" />
+                <div class="carousel-caption d-none d-md-block text-start">
+                    <h5 class="fw-bold text-success-light">Tahap 2: Pemodelan Skema Rekayasa Alat</h5>
+                    <p class="small text-secondary-light">Merancang urutan lapisan media penyaring secara bergradasi dari ukuran partikel kasar hingga mikro agar penyaringan optimal.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="clean_water.png" class="d-block w-100 carousel-img" alt="Gelas Air Bersih" />
+                <div class="carousel-caption d-none d-md-block text-start">
+                    <h5 class="fw-bold text-success-light">Tahap 3: Hasil Akhir Filtrasi Air Bersih</h5>
+                    <p class="small text-secondary-light">Memperoleh air yang jernih, bebas bau, dan bernilai netral pH 7.0 secara mekanis menggunakan material ramah lingkungan.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tombol Kontrol Navigasi Slideshow -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSTEM" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSTEM" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </section>
+
+    <!-- Main Container Utama -->
+    <main class="container py-5">
+        
+        <!-- ================= HERO SECTION ================= -->
+        <section class="row align-items-center mb-5 gy-4">
+            <div class="col-md-7">
+                <h1 class="display-5 fw-bold text-success mb-3">Rancang Bangun Alat Penyaring Air Sederhana</h1>
+                <p class="lead text-muted text-justify">
+                    Sebuah dokumentasi proyek eksperimen Kelas X SMA Negeri untuk memecahkan krisis air bersih menggunakan media filtrasi alami secara terstruktur dan ilmiah.
+                </p>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-success rounded-pill px-4 shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTeam">
+                        Lihat Susunan Tim &rarr;
+                    </button>
+                    <!-- Tombol untuk memicu Modal profil peneliti secara langsung -->
+                    <button class="btn btn-outline-success rounded-pill px-4 shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                        Detail Peneliti Utama
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Kolom Profil Peneliti Utama (Memicu Modal bila diklik) -->
+            <div class="col-md-5">
+                <div class="card shadow-sm border border-light-subtle bg-white p-4 position-relative rounded-4 text-center custom-card" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#profileModal">
+                    <span class="position-absolute top-0 end-0 m-3 badge bg-danger rounded-pill px-3 py-2 fw-bold" style="font-size: 11px;">Kelompok 1</span>
+                    <img class="profile-pic rounded-circle border border-3 border-success p-1 mx-auto mb-3" src="profilepic.png" width="100" height="100" alt="Foto Profil Siswa Sesi 11" />
+                    <div>
+                        <h5 class="fw-bold mb-1">Primastuti Dewi</h5>
+                        <p class="text-secondary small mb-1">Kelas X-A SMA</p>
+                        <small class="text-success fw-semibold">(Klik Foto untuk Bio Lengkap)</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5 opacity-25" />
+
+        <!-- ================= LATAR BELAKANG SAINS (Dengan Tooltip & Popover) ================= -->
+        <section class="row align-items-stretch mb-5 gy-4">
+            <div class="col-md-5">
+                <div class="h-100 bg-success-subtle border-start border-5 border-success p-4 rounded-end d-flex align-items-center">
+                    <p class="fst-italic text-success fs-5 mb-0" style="font-family: Georgia, serif;">
+                        "Air bersih adalah komponen vital bagi seluruh kehidupan. Mengurangi pencemaran air adalah tanggung jawab rekayasa kita bersama."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Mengintegrasikan Tooltip dan Popover pada teks latar belakang -->
+            <div class="col-md-7 d-flex flex-column justify-content-center">
+                <h2 class="fw-bold text-success mb-3">Latar Belakang Proyek</h2>
+                <p class="text-justify">
+                    Krisis ketersediaan air bersih merupakan isu lingkungan hidup yang krusial. Banyak sumber air permukaan tercemar lumpur, pasir, dan zat organik sehingga keruh serta berbau.
+                </p>
+                <p class="text-justify">
+                    Melalui rekayasa 
+                    <!-- Tooltip pada kata 'filtrasi' -->
+                    <span class="text-success fw-bold" style="cursor: help; border-bottom: 1px dotted #198754;" data-bs-toggle="tooltip" data-bs-placement="top" title="Filtrasi adalah proses penyaringan fisik untuk memisahkan partikel padat dari cairan menggunakan media berpori.">filtrasi fisik</span>, 
+                    kita dapat membersihkan air tersebut secara mekanis menggunakan material berpori di sekitar kita. Salah satu bahan utama kita adalah 
+                    <!-- Popover pada kata 'arang aktif' -->
+                    <span class="text-success fw-bold" style="cursor: pointer; border-bottom: 1px dotted #198754;" data-bs-toggle="popover" data-bs-placement="bottom" title="Info Arang Aktif" data-bs-content="Arang aktif adalah karbon yang diproses khusus agar pori-porinya terbuka, menghasilkan luas permukaan sangat besar untuk mengadsorpsi warna hitam, bau menyengat, serta zat kimia besi dalam air keruh.">arang aktif</span>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= ACCORDION COMPONENT (Prosedur Perakitan) ================= -->
+        <section class="mb-5">
+            <h2 class="fw-bold text-success mb-3">Prosedur Perakitan Alat (Engineering)</h2>
+            <p class="text-muted mb-4">Lapisan media penyaring disusun secara berurutan agar menghasilkan filtrasi optimal. Klik pada masing-masing langkah di bawah untuk melihat detail instruksi:</p>
+            
+            <div class="accordion shadow-sm border border-light-subtle rounded-3" id="accordionProcedural">
+                <div class="accordion-item bg-white">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button fw-bold text-success bg-success-subtle bg-opacity-25" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Langkah 01: Persiapan Casing Botol Filter
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionProcedural">
+                        <div class="accordion-body text-secondary small">
+                            Potong bagian bawah botol plastik bekas ukuran 1.5 Liter sekitar 5 cm menggunakan cutter secara rapi. Balikkan botol sehingga corong menghadap ke bawah. Lubangi tutup botol dengan 4-5 lubang kecil menggunakan paku hangat agar air filtrasi dapat mengalir terkendali.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item bg-white">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed fw-bold text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Langkah 02: Penyusunan Media Penyaring Halus
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionProcedural">
+                        <div class="accordion-body text-secondary small">
+                            Masukkan kapas steril di posisi paling bawah botol dengan ketebalan sekitar 3 cm, tekan perlahan hingga padat. Di atas kapas, tuangkan arang aktif (karbon aktif) setebal 4 cm. Kapas menyaring partikel koloid mikro, sedangkan arang aktif berfungsi menyerap zat kimia bau dan warna secara fisiko-kimia (*adsorpsi*).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed fw-bold text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Langkah 03: Penyusunan Media Penyaring Kasar
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionProcedural">
+                        <div class="accordion-body text-secondary small">
+                            Tuangkan lapisan pasir silika bersih di atas arang setebal 5 cm. Di atas lapisan pasir, masukkan kerikil kecil setebal 3 cm, dan terakhir tempatkan lapisan kerikil besar setebal 4 cm di bagian teratas. Urutan ini memastikan kotoran kasar disaring terlebih dahulu sebelum air menyentuh filter halus.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed fw-bold text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Langkah 04: Pengujian & Pembersihan Saringan
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionProcedural">
+                        <div class="accordion-body text-secondary small">
+                            Tuangkan air keruh/sampel air kotor dari atas botol secara perlahan. Pada 3 menit awal, air yang keluar mungkin sedikit hitam keabu-abuan akibat debu karbon arang aktif bawaan. Tetap tuangkan air bersih untuk membilas media hingga tetesan air yang keluar dari corong bawah botol terlihat sangat jernih dan bebas bau.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ALAT DAN BAHAN ================= -->
+        <section class="mb-5">
+            <h2 class="fw-bold text-success mb-3">Komponen Alat & Bahan (Engineering)</h2>
+            <p class="text-muted mb-4">Berikut adalah komponen yang dipersiapkan untuk merakit casing dan media penyaring air:</p>
+            
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">1. Botol Plastik</h5>
+                            <p class="card-text text-secondary small">Ukuran 1.5 Liter sebagai wadah susunan filter.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3" style="cursor: pointer;" data-bs-toggle="popover" data-bs-trigger="focus" tabindex="0" title="Informasi Kapas" data-bs-content="Kapas steril ditempatkan pada lapisan paling dasar untuk menahan debu halus karbon arang agar air keluar bebas endapan pasir/lumpur renik.">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">2. Kapas Steril <span class="badge bg-secondary rounded-pill small">Klik Info</span></h5>
+                            <p class="card-text text-secondary small">Sebagai lapisan penyaring partikel halus di paling bawah.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3" style="cursor: pointer;" data-bs-toggle="popover" data-bs-trigger="focus" tabindex="0" title="Informasi Arang Aktif" data-bs-content="Memiliki jutaan pori mikro aktif untuk proses adsorpsi (menetralkan pH asam, mengikat klorin racun, serta menghilangkan bau besi/lumpur).">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">3. Arang Aktif <span class="badge bg-secondary rounded-pill small">Klik Info</span></h5>
+                            <p class="card-text text-secondary small">Berfungsi untuk adsorpsi (menyerap bau, warna, & zat kimia).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">4. Pasir Bersih</h5>
+                            <p class="card-text text-secondary small">Lapisan penyaring lumpur halus dan koloid terlarut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">5. Kerikil Kecil</h5>
+                            <p class="card-text text-secondary small">Penyaring kotoran berukuran sedang sebelum masuk ke pasir.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="card h-100 border border-light-subtle shadow-sm custom-card rounded-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-success">6. Kerikil Besar</h5>
+                            <p class="card-text text-secondary small">Lapisan paling atas untuk menyaring sampah ukuran kasar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= GLOSARIUM & SKEMA (Dengan Interaksi) ================= -->
+        <section class="row align-items-start mb-5 gy-4">
+            <div class="col-md-7">
+                <div class="card border border-light-subtle shadow-sm p-4 rounded-4">
+                    <h2 class="fw-bold text-success mb-4">Glosarium Sains</h2>
+                    <dl class="mb-0">
+                        <dt class="fw-bold text-success fs-5">
+                            <span style="cursor: help; border-bottom: 1px dotted #198754;" data-bs-toggle="tooltip" data-bs-placement="right" title="Klik kata 'Adsorpsi' atau 'Kapas' di atas untuk info lebih lengkap.">Filtrasi</span>
+                        </dt>
+                        <dd class="text-secondary mb-3 text-justify">Pemisahan fisik partikel padat dari cairan menggunakan media berpori.</dd>
+                        
+                        <dt class="fw-bold text-success fs-5">
+                            <span style="cursor: help; border-bottom: 1px dotted #198754;" data-bs-toggle="tooltip" data-bs-placement="right" title="Konsep kimia di mana atom/molekul menempel pada permukaan padatan.">Adsorpsi</span>
+                        </dt>
+                        <dd class="text-secondary mb-3 text-justify">Penyerapan zat terlarut pada permukaan media penyerap seperti arang aktif.</dd>
+                        
+                        <dt class="fw-bold text-success fs-5">
+                            <span style="cursor: help; border-bottom: 1px dotted #198754;" data-bs-toggle="tooltip" data-bs-placement="right" title="Tingkat kekeruhan air yang disebabkan oleh koloid lumpur tersuspensi.">Turbiditas</span>
+                        </dt>
+                        <dd class="text-secondary mb-0 text-justify">Tingkat kekeruhan air akibat partikel tersuspensi seperti lumpur.</dd>
+                    </dl>
+                </div>
+            </div>
+            
+            <div class="col-md-5">
+                <div class="card border border-light-subtle shadow-sm p-4 rounded-4 text-center">
+                    <h2 class="fw-bold text-success mb-3">Rancangan Skema</h2>
+                    <img class="schema-img img-fluid rounded border p-2 bg-light mb-3 mx-auto" src="filter_schema.png" alt="Skema Susunan Lapisan Filter Air Sederhana" style="max-height: 260px; object-fit: contain;" />
+                    <p class="small text-muted mb-0"><i>*Arahkan kursor ke gambar untuk memicu perbesaran dan rotasi skema.</i></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= INSTRUKSI KESELAMATAN (Alert) ================= -->
+        <section class="mb-5">
+            <div class="alert alert-warning border-warning-subtle shadow-sm p-4 rounded-4 d-flex align-items-center gap-3" role="alert">
+                <span class="fs-2">⚠️</span>
+                <div>
+                    <h5 class="alert-heading fw-bold text-warning-emphasis mb-1">Penting untuk Keselamatan Sains!</h5>
+                    <p class="mb-0 small text-justify">
+                        Air hasil filtrasi fisik ini hanya bersih secara visual dari lumpur, bau, dan partikel kasar. Untuk kebutuhan konsumsi, air hasil saringan wajib direbus terlebih dahulu hingga mendidih guna melumpuhkan mikroorganisme dan bakteri berbahaya.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= TOAST COMPONENT (Notifikasi Pojok Layar) ================= -->
+    <div class="toast-container-custom">
+        <div class="toast shadow-lg border-0 bg-white rounded-3" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="6000">
+            <!-- Header Toast -->
+            <div class="toast-header bg-success text-white py-2 rounded-top-3">
+                <span class="fs-6 me-2">🔔</span>
+                <strong class="me-auto">Jurnal STEM Kelompok 1</strong>
+                <small class="text-white-50">baru saja</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <!-- Body Toast -->
+            <div class="toast-body text-secondary small py-3">
+                Selamat Datang! Klik tombol <strong>👥 Profil Tim</strong> di kanan atas untuk melihat kontribusi dan biografi anggota kelompok kami.
+            </div>
+        </div>
+    </div>
+
+    <!-- Tombol Bantuan Fixed Melayang -->
+    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-4 px-4 py-2" href="#top" style="z-index: 1000; box-shadow: 0 4px 15px rgba(25, 135, 84, 0.35) !important;">
+        Kembali ke Atas
+    </a>
+
+    <!-- Footer Dokumen -->
+    <footer class="text-center py-4 mt-5 bg-white text-muted">
+        <p class="small mb-0">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1. Didukung oleh Bootstrap 5.</p>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle dari CDN resmi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- ================= JAVASCRIPT INISIALISASI UNTUK KOMPONEN DINAMIS ================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Inisialisasi Tooltip
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+
+            // 2. Inisialisasi Popover
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            });
+
+            // 3. Inisialisasi & Tampilkan Toast Selamat Datang
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function (toastEl) {
+                var toast = new bootstrap.Toast(toastEl);
+                toast.show(); // Menampilkan toast secara otomatis saat halaman selesai dimuat
+                return toast;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

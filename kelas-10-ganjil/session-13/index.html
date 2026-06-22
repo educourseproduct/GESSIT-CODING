@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jurnal STEM Terkustomisasi Sass - Pertemuan 13</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>">
+    
+    <!-- Mengimpor CSS Hasil Kompilasi Sass Kustom (Menggantikan CDN Bootstrap & style.css) -->
+    <link href="css/custom.css" rel="stylesheet" />
+    
+    <!-- Mengimpor Google Font Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR DENGAN LOGO SEMANTIK & BRANDING SASS KUSTOM ================= -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top border-bottom border-success py-3 shadow" role="navigation" aria-label="Navigasi Utama">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="index.html">
+                <span class="me-2" aria-hidden="true">💧</span> Jurnal STEM Kelompok 1
+            </a>
+            
+            <!-- Tombol Toggle Mobile dengan ARIA Expanded/Controls -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Tampilkan Menu Navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Link Navigasi -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2 py-2 py-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold px-3" href="index.html" aria-current="page">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="laporan/data_tabel.html">Laporan Pengamatan</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Tombol K3 dengan Pemicu Modal Keselamatan -->
+                        <button class="btn btn-warning btn-sm rounded-pill px-4 fw-semibold shadow-sm text-dark" type="button" data-bs-toggle="modal" data-bs-target="#k3Modal" aria-haspopup="dialog">
+                            ⚠️ K3 Lab Keselamatan
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= ALERT BANNER (WARNA SUKSES EMERALD DARI SASS) ================= -->
+    <div class="container my-4">
+        <div class="alert alert-success alert-dismissible fade show border-0 shadow rounded-4 p-4 mb-0" role="alert" id="status-alert">
+            <div class="d-flex align-items-start gap-3">
+                <div class="fs-2" aria-hidden="true">🌿</div>
+                <div>
+                    <h5 class="alert-heading fw-bold mb-1">Branding Kelompok Berhasil Diterapkan!</h5>
+                    <p class="mb-0 small text-dark-emphasis">Kami berhasil merombak tema warna Bootstrap menjadi hijau hutan (Forest Green) menggunakan Sass compiler untuk mewakili tema pelestarian lingkungan hidup dan sanitasi air bersih.</p>
+                </div>
+            </div>
+            <!-- Tombol Tutup Peringatan dengan aria-label -->
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup kotak notifikasi ini"></button>
+        </div>
+    </div>
+
+    <!-- ================= MAIN LAYOUT DENGAN COLUMN REORDERING (ORDER-*) ================= -->
+    <main class="container my-4">
+        <!-- Grid Utama Layout -->
+        <div class="row g-4">
+            
+            <!-- KOLOM UTAMA (LAPORAN & DESAIN): Tampil kedua di mobile, pertama di desktop -->
+            <div class="col-lg-8 order-2 order-lg-1">
+                
+                <!-- BINGKAI 1: SAINS & KARYA TULIS (NESTED GRID) -->
+                <section class="bg-white p-4 rounded-4 border border-light-subtle shadow-sm mb-4" aria-labelledby="section-sains">
+                    <h2 class="fw-bold fs-4 text-primary mb-3 d-flex align-items-center" id="section-sains">
+                        <span class="me-2" aria-hidden="true">🧪</span> 1. Aspek Sains: Kualitas Air & Filtrasi
+                    </h2>
+                    <p class="text-justify small mb-4">
+                        Penyaringan air sederhana merupakan contoh penerapan konsep pemisahan campuran secara fisika. Air kotor dialirkan melewati media granular berpori untuk menahan kotoran makro, sementara zat penjerap (arang aktif) mengikat bau, rasa klorin, dan senyawa organik secara kimia.
+                    </p>
+                    
+                    <!-- NESTED GRID: Menyusun Dua Sub-Topik Di Dalam Kotak Utama -->
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3 h-100 border border-light-subtle custom-card">
+                                <h3 class="fw-bold fs-6 text-dark d-flex align-items-center">
+                                    <span class="me-2 text-primary" aria-hidden="true">🔬</span> Analisis pH & Kekeruhan
+                                </h3>
+                                <p class="small text-muted mb-0 text-justify">
+                                    Tingkat keasaman (pH) air limbah rumah tangga diuji menggunakan kertas indikator universal sebelum dan sesudah filtrasi untuk memastikan air berada pada batas pH netral 6.5–8.5.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3 h-100 border border-light-subtle custom-card">
+                                <h3 class="fw-bold fs-6 text-dark d-flex align-items-center">
+                                    <span class="me-2 text-primary" aria-hidden="true">🪵</span> Peran Karbon Aktif
+                                </h3>
+                                <p class="small text-muted mb-0 text-justify">
+                                    Karbon aktif memiliki struktur mikropori yang luas, menjadikannya agen adsorpsi kimia terbaik untuk menghilangkan senyawa klorin bebas yang berbahaya bagi kesehatan organ tubuh manusia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- BINGKAI 2: DESAIN ELEMEN REKAYASA (ACCORDION & ARIA EXPANDED) -->
+                <section class="bg-white p-4 rounded-4 border border-light-subtle shadow-sm mb-4" aria-labelledby="section-rekayasa">
+                    <h2 class="fw-bold fs-4 text-primary mb-3" id="section-rekayasa">📐 2. Aspek Engineering: Susunan Media Filter</h2>
+                    <p class="text-justify small mb-3">
+                        Untuk memisahkan partikel padat tersuspensi dari ukuran kasar hingga partikel koloid halus, urutan lapisan penyaring diatur sedemikian rupa. Klik panel di bawah ini untuk melihat kegunaan spesifik tiap lapisan penyaring:
+                    </p>
+                    
+                    <!-- ACCORDION DENGAN AKSESIBILITAS ARIA PENUH -->
+                    <div class="accordion" id="filterAccordion">
+                        
+                        <!-- Item 1: Lapisan Kasar Atas -->
+                        <div class="accordion-item mb-2 border border-light-subtle">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed fw-semibold text-primary bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    🪨 Kerikil Kasar & Halus (Lapisan 1 & 2 - Teratas)
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body bg-light text-justify small">
+                                    Lapisan kerikil diletakkan di bagian paling atas untuk menyaring partikel-partikel kotoran berukuran besar seperti potongan daun, ranting kecil, lumut kasar, dan serangga tanah. Ini mencegah penyumbatan dini pada lapisan penyaring yang lebih halus di bawahnya.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2: Lapisan Menengah -->
+                        <div class="accordion-item mb-2 border border-light-subtle">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-semibold text-primary bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    ⏳ Pasir Silika Bersih (Lapisan 3 - Penyaring Sedang)
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body bg-light text-justify small">
+                                    Pasir silika bertindak sebagai filter mekanis tingkat menengah. Struktur butiran pasir yang rapat menahan endapan tanah liat halus, lumpur liat, serta partikel organik tersuspensi lainnya yang lolos dari lapisan kerikil.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Lapisan Adsorpsi -->
+                        <div class="accordion-item mb-2 border border-light-subtle">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-semibold text-primary bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    🖤 Arang Aktif / Karbon Aktif (Lapisan 4 - Adsorben Kimia)
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body bg-light text-justify small">
+                                    Arang aktif berperan penting dalam proses adsorpsi zat kimia terlarut. Lapisan ini menjerap zat pewarna (menjadikan air jernih), mengikat zat kimia berbahaya, menetralisir bau tidak sedap, serta memperbaiki rasa air hasil saringan.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Lapisan Halus Terbawah -->
+                        <div class="accordion-item border border-light-subtle">
+                            <h3 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed fw-semibold text-primary bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    ☁️ Kapas / Tisu Steril (Lapisan 5 - Terbawah)
+                                </button>
+                            </h3>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#filterAccordion">
+                                <div class="accordion-body bg-light text-justify small">
+                                    Kapas atau tisu diletakkan di bagian corong botol paling bawah sebagai penahan akhir. Fungsinya adalah menyaring sisa-sisa partikel abu arang atau mikro partikel pasir agar tidak ikut mengalir keluar ke dalam wadah penampung air bersih.
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <!-- BINGKAI 3: INTEGRASI 4 PILAR STEM (DENGAN REVOLUSI COLUMN BREAKS) -->
+                <section class="bg-white p-4 rounded-4 border border-light-subtle shadow-sm" aria-labelledby="section-stem">
+                    <h2 class="fw-bold fs-4 text-primary mb-3" id="section-stem">⚙️ 3. Integrasi Pembelajaran STEM</h2>
+                    <p class="text-justify small mb-3">
+                        Proyek pembuatan penyaring air sederhana ini dirancang terintegrasi lintas disiplin ilmu STEM (Science, Technology, Engineering, & Mathematics):
+                    </p>
+                    
+                    <!-- GRID 4 KOLOM DENGAN COLUMN BREAKS PAKSA DI BREAKPOINT TERTENTU -->
+                    <div class="row g-3">
+                        
+                        <!-- Sains -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="p-3 bg-success-subtle h-100 rounded-3 border-0 text-center">
+                                <span class="fs-3 d-block mb-1" aria-hidden="true">🧪</span>
+                                <h4 class="fw-bold fs-6 mb-1 text-success">Science</h4>
+                                <p class="xsmall text-muted mb-0">Memahami sedimentasi & adsorpsi karbon aktif.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Teknologi -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="p-3 bg-primary-subtle h-100 rounded-3 border-0 text-center">
+                                <span class="fs-3 d-block mb-1" aria-hidden="true">💻</span>
+                                <h4 class="fw-bold fs-6 mb-1 text-primary">Technology</h4>
+                                <p class="xsmall text-muted mb-0">Membuat visualisasi web kustom SCSS & tabel data.</p>
+                            </div>
+                        </div>
+
+                        <!-- COLUMN BREAK PAKSA: Membagi kolom grid menjadi 2x2 hanya pada layar tablet (md), 
+                             sedangkan pada layar desktop besar (lg) akan tetap berjajar rata 1 baris (4 kolom) -->
+                        <div class="w-100 d-none d-md-block d-lg-none" aria-hidden="true"></div>
+
+                        <!-- Rekayasa -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="p-3 bg-warning-subtle h-100 rounded-3 border-0 text-center">
+                                <span class="fs-3 d-block mb-1" aria-hidden="true">📐</span>
+                                <h4 class="fw-bold fs-6 mb-1 text-warning-dark">Engineering</h4>
+                                <p class="xsmall text-muted mb-0">Merancang ketebalan susunan tiap filter botol.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Matematika -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="p-3 bg-danger-subtle h-100 rounded-3 border-0 text-center">
+                                <span class="fs-3 d-block mb-1" aria-hidden="true">📊</span>
+                                <h4 class="fw-bold fs-6 mb-1 text-danger">Mathematics</h4>
+                                <p class="xsmall text-muted mb-0">Menghitung laju debit air & persentase kejernihan.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                
+            </div>
+
+            <!-- KOLOM SAMPING (PROFIL & GAMBAR SKEMA): Tampil pertama di mobile, kedua di desktop -->
+            <div class="col-lg-4 order-1 order-lg-2">
+                
+                <!-- KARTU A: IDENTITAS KELOMPOK (SENSASI KEBANGGAAN) -->
+                <div class="card border-light-subtle shadow-sm rounded-4 overflow-hidden mb-4 bg-white" role="region" aria-label="Profil Peneliti">
+                    <div class="bg-primary text-white py-4 text-center">
+                        <!-- Foto Profil Bulat Interaktif -->
+                        <img class="profile-pic rounded-circle border border-4 border-white shadow-sm p-1 mb-2" src="profilepic.png" width="90" height="90" alt="Foto Primastuti Dewi, Peneliti Utama" data-bs-toggle="modal" data-bs-target="#k3Modal" style="cursor: pointer;" />
+                        <h4 class="fw-bold mb-0 fs-5">Primastuti Dewi</h4>
+                        <span class="badge bg-white text-primary rounded-pill px-3 mt-1 fw-semibold small">Siswa Kelas X-A</span>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-muted small text-justify mb-3">
+                            "Penggunaan Sass mengajarkan kami tentang efisiensi penulisan kode CSS dan bagaimana cara membangun visual identitas kelompok yang konsisten."
+                        </p>
+                        <div class="bg-light p-3 rounded-3 border border-light-subtle small">
+                            <div class="row g-2">
+                                <div class="col-5 text-secondary fw-semibold">Kelompok</div>
+                                <div class="col-7 text-dark">: Kelompok 1 (STEM)</div>
+                                <div class="col-5 text-secondary fw-semibold">Peran Utama</div>
+                                <div class="col-7 text-dark">: Desainer Sistem</div>
+                                <div class="col-5 text-secondary fw-semibold">Sass Config</div>
+                                <div class="col-7 text-dark">: custom.scss (v5.3)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTU B: SKEMA FILTRASI DENGAN ANIMASI INTERAKTIF -->
+                <div class="card border-light-subtle shadow-sm rounded-4 overflow-hidden bg-white" role="region" aria-label="Visual Skema Filter">
+                    <div class="card-header bg-light border-bottom py-3">
+                        <h3 class="fw-bold fs-6 mb-0 text-primary text-center">📐 Skema Desain Penyaring</h3>
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <!-- Gambar Skema dengan Efek Hover CSS -->
+                        <img src="filter_schema.png" class="schema-img img-fluid rounded-3 border border-light-subtle shadow-sm mb-3" alt="Skema Gambar lapisan botol air: kerikil paling atas, diikuti pasir silika, arang aktif, dan kapas terbawah" />
+                        <div class="alert alert-warning border-0 p-2 mb-0 rounded-3 text-start">
+                            <p class="xsmall mb-0 text-dark-emphasis text-justify">
+                                💡 <strong>Tips Lab:</strong> Cuci pasir silika dan kerikil sebanyak 3 kali hingga air bilasan jernih sebelum dimasukkan ke dalam botol agar tidak merusak akurasi pengujian.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= K3 LAB SAFETY MODAL (ARIA ACCESSIBLE ROLE DIALOG) ================= -->
+    <div class="modal fade" id="k3Modal" tabindex="-1" aria-labelledby="k3ModalLabel" aria-describedby="k3ModalDesc" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow rounded-4 overflow-hidden">
+                <!-- Header Modal K3 -->
+                <div class="modal-header bg-danger text-white py-3">
+                    <h5 class="modal-title fw-bold d-flex align-items-center" id="k3ModalLabel">
+                        <span class="me-2" aria-hidden="true">⚠️</span> Prosedur K3 & Keselamatan Lab
+                    </h5>
+                    <!-- Tombol Tutup X dengan Deskripsi Screen Reader -->
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup jendela keselamatan lab"></button>
+                </div>
+                
+                <!-- Body Modal K3 -->
+                <div class="modal-body p-4" id="k3ModalDesc">
+                    <p class="small text-justify text-muted mb-3">
+                        Untuk menjaga keselamatan diri dan tim selama proses perakitan alat filter air sederhana, patuhi panduan K3 berikut dengan ketat:
+                    </p>
+                    <ol class="small ps-3 text-dark mb-0 d-flex flex-column gap-2">
+                        <li><strong>Gunakan Sarung Tangan:</strong> Saat menangani karbon aktif/arang aktif agar tangan tidak kotor oleh jelaga halus karbon.</li>
+                        <li><strong>Keamanan Alat Tajam:</strong> Gunakan cutter dan gunting dengan hati-hati di bawah pengawasan guru saat memotong botol plastik.</li>
+                        <li><strong>Dilarang Meminum Air Hasil Uji:</strong> Air hasil saringan alat ini murni untuk pengujian laboratorium sekolah, bukan untuk dikonsumsi langsung sebelum diuji lab klinis mikroba.</li>
+                    </ol>
+                </div>
+                
+                <!-- Footer Modal K3 -->
+                <div class="modal-footer bg-light py-2">
+                    <button type="button" class="btn btn-secondary btn-sm px-4 rounded-pill" data-bs-dismiss="modal">Saya Paham</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER DENGAN HAK CIPTA KEBANGGAAN ================= -->
+    <footer class="bg-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1 text-secondary small">&copy; 2026 Proyek STEM Kelompok 1 - Kelas X-A SMA Negeri.</p>
+            <p class="mb-0 text-muted xsmall">Dipersembahkan dengan bangga untuk Orang Tua & Masa Depan Sanitasi Air Bersih Dunia.</p>
+        </div>
+    </footer>
+
+    <!-- Mengimpor Bootstrap 5.3.3 Bundled JS dari CDN resmi -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

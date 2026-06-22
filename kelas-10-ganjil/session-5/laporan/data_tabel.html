@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jurnal STEM - Data Pengamatan (Tabel)</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    
+    <!-- Menghubungkan ke berkas style.css menggunakan jalur relatif mundur satu folder -->
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+
+    <!-- Header Halaman dengan ID Selector -->
+    <header id="main-header">
+        <h1>Jurnal STEM: Proyek Penyaring Air Sederhana</h1>
+    </header>
+
+    <!-- Navbar dengan Descendant Selector (nav a) -->
+    <nav>
+        <a href="../index.html">Halaman Utama (Laporan)</a> | 
+        <a href="data_tabel.html">Data Pengamatan (Tabel)</a> | 
+        <a href="recommendation.html">Rekomendasi Alat Desain</a>
+    </nav>
+
+    <!-- Main Halaman -->
+    <main>
+        <h2 class="section-title">Data Hasil Pengujian Kuantitatif</h2>
+        
+        <p><strong>Peneliti Penanggung Jawab Data:</strong></p>
+        <img src="../profilepic.png" width="100" height="100" alt="Foto Profil Siswa" />
+        <br /><br />
+
+        <!-- Elemen Table yang mewakili visualisasi matriks (Mathematics) -->
+        <table border="1" style="width:100%" cellpadding="8" cellspacing="0">
+            <caption><b>Tabel 1. Perbandingan Kualitas Air Sebelum dan Setelah Filtrasi</b></caption>
+            
+            <thead>
+                <tr bgcolor="#e6e6e6">
+                    <th rowspan="2">No.</th>
+                    <th rowspan="2">Asal Sampel Air</th>
+                    <th colspan="2">Tingkat Keasaman (pH)</th>
+                    <th colspan="2">Kekeruhan & Bau (Kondisi Fisik)</th>
+                    <th rowspan="2">Kecepatan Aliran (L/menit)</th>
+                </tr>
+                <tr bgcolor="#e6e6e6">
+                    <th>Sebelum</th>
+                    <th>Setelah</th>
+                    <th>Sebelum</th>
+                    <th>Setelah</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td align="center">1</td>
+                    <td>Air Selokan Belakang Sekolah</td>
+                    <td align="center">5.8 (Asam)</td>
+                    <td align="center">7.0 (Netral)</td>
+                    <td>Sangat Hitam & Berbau Busuk</td>
+                    <td>Jernih & Tidak Berbau</td>
+                    <td align="center">0.08 L/menit</td>
+                </tr>
+                <tr>
+                    <td align="center">2</td>
+                    <td>Air Sumur Warga (Kuning)</td>
+                    <td align="center">6.2 (Asam Lemah)</td>
+                    <td align="center">7.2 (Netral)</td>
+                    <td>Kuning Keruh & Bau Besi</td>
+                    <td>Jernih & Bebas Bau</td>
+                    <td align="center">0.12 L/menit</td>
+                </tr>
+                <tr>
+                    <td align="center">3</td>
+                    <td>Air Hujan Penampungan</td>
+                    <td align="center">6.5 (Asam Lemah)</td>
+                    <td align="center">7.0 (Netral)</td>
+                    <td>Keruh Berpasir</td>
+                    <td>Sangat Jernih</td>
+                    <td align="center">0.10 L/menit</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Analisis Data Matematika</h3>
+        <!-- Paragraf di bawah ini akan terpengaruh Adjacent Selector (h3 + p) -->
+        <p>
+            Berdasarkan kecepatan alir filtrasi di atas, diperoleh rata-rata waktu pemrosesan adalah 0.10 Liter/menit.
+        </p>
+        <!-- Paragraf di bawah ini akan terpengaruh Sibling Selector (h3 ~ p) -->
+        <p>
+            Peningkatan pH air menjadi netral membuktikan bahwa arang aktif sukses menyaring keasaman secara kimiawi.
+        </p>
+    </main>
+
+    <!-- Footer Halaman dengan ID Selector -->
+    <footer>
+        <hr />
+        <h5 id="footer-note" align="center">Hak Cipta Terpelihara &copy; 2026. Kelas X SMA - Proyek STEM Kelompok 1.</h5>
+    </footer>
+
+</body>
+
+</html>
