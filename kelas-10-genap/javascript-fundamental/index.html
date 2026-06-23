@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookstore Dashboard - Sesi 10</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            padding-bottom: 3rem;
+        }
+        
+        .navbar-custom {
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #f8fafc;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-custom-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            color: white;
+        }
+
+        .btn-custom-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-control-dark {
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .form-control-dark:focus {
+            background-color: rgba(15, 23, 42, 0.8);
+            border-color: #6366f1;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+            color: white;
+        }
+
+        .instruction-box {
+            border-left: 4px solid #818cf8;
+            background: rgba(129, 140, 248, 0.05);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .text-muted {
+            color: #cbd5e1 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark navbar-custom px-3 py-3 mb-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- MISI 1 Target: id="store-title" -->
+            <span class="navbar-brand mb-0 h1 fw-bold fs-3 gradient-text" id="store-title">EduCourse Bookstore</span>
+            <span class="badge bg-indigo text-light border border-indigo px-3 py-2" style="background: rgba(99, 102, 241, 0.2)">Sesi 10 - Kelas X SMA</span>
+        </div>
+    </nav>
+
+    <!-- CONTENT CONTAINER -->
+    <div class="container">
+        
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">My Bookstore Dashboard</h2>
+            <p class="text-muted">Lembar kerja praktikum siswa untuk mempelajari Javascript dasar & manipulasi DOM.</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- MISI 1: UBAH NAMA TOKO -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card glass-card h-100 p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-2">1. Change HTML Content</h5>
+                        <div class="instruction-box mb-3">
+                            Ubah teks judul toko <strong>"EduCourse Bookstore"</strong> di navbar menjadi nama toko pilihanmu sendiri.
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <!-- TUGAS SISWA: Pasang event listener click untuk memicu Misi 1 -->
+                        <button class="btn btn-custom-primary w-100 py-2 fw-bold" id="btn-change-title">
+                            Ubah Nama Toko
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MISI 2: UBAH ATRIBUT GAMBAR (HITAM PUTIH / BERWARNA) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card glass-card h-100 p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-2">2. Change HTML Attribute</h5>
+                        <div class="instruction-box mb-3">
+                            Manipulasi nilai atribut <code>src</code> pada gambar di bawah agar berganti dari hitam putih ke berwarna dan sebaliknya.
+                        </div>
+                        <div class="text-center my-3 bg-dark-subtle p-3 rounded" style="background: rgba(15, 23, 42, 0.4)">
+                            <!-- Target Gambar id="myImage" -->
+                            <img id="myImage" src="https://cdn-icons-png.flaticon.com/128/3069/3069114.png" alt="Status Burung" style="width: 100px; height: 100px; transition: filter 0.3s ease;">
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 mt-3">
+                        <!-- TUGAS SISWA: Pasang event listener click untuk mengubah gambar -->
+                        <button class="btn btn-success w-50 py-2 fw-bold" id="btn-color-image">Berwarna</button>
+                        <button class="btn btn-custom-secondary w-50 py-2 fw-bold" id="btn-bw-image">Hitam Putih</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MISI 3: UBAH CSS STYLE -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card glass-card h-100 p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-2">3. Change HTML Style</h5>
+                        <div class="instruction-box mb-3">
+                            Ubah warna teks target promo di bawah ini menjadi merah atau biru secara dinamis menggunakan properti style.
+                        </div>
+                        <div class="text-center my-4">
+                            <!-- Target Text id="promo-text" -->
+                            <h4 class="fw-bold" id="promo-text">DISKON SPESIAL 50%</h4>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 mt-3">
+                        <!-- TUGAS SISWA: Pasang event listener click untuk mengubah style warna teks -->
+                        <button class="btn btn-danger w-50 py-2 fw-bold" id="btn-red-text">Teks Merah</button>
+                        <button class="btn btn-primary w-50 py-2 fw-bold" id="btn-blue-text">Teks Biru</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MISI 4: MENAMPILKAN & MENYEMBUNYIKAN ELEMEN -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card glass-card h-100 p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-2">4. Showing & Hiding Element</h5>
+                        <div class="instruction-box mb-3">
+                            Sembunyikan kupon rahasia di bawah agar hilang dari layar, dan munculkan kembali menggunakan manipulasi CSS display.
+                        </div>
+                        <div class="my-3 text-center" id="promo-coupon">
+                            <div class="alert alert-warning border-warning m-0 py-3" style="background: rgba(245, 158, 11, 0.1); color: #fbbf24;">
+                                <span class="fs-6 d-block text-uppercase fw-bold">Kupon Aktif:</span>
+                                <strong class="fs-4">BukuKreatif10</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 mt-3">
+                        <!-- TUGAS SISWA: Pasang event listener click untuk menyembunyikan/menampilkan -->
+                        <button class="btn btn-danger w-50 py-2 fw-bold" id="btn-hide-coupon">Sembunyikan</button>
+                        <button class="btn btn-success w-50 py-2 fw-bold" id="btn-show-coupon">Tampilkan</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MISI 5: PERHITUNGAN MATEMATIKA -->
+            <div class="col-md-6 col-lg-8">
+                <div class="card glass-card h-100 p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-2">5. Applying Computation (Kalkulator Harga)</h5>
+                        <div class="instruction-box mb-4">
+                            Lengkapi fungsi perkalian otomatis di JavaScript. Masukkan kuantitas pembelian buku, harga per buku konstan didefinisikan sebesar Rp 50.000, lalu hitung totalnya.
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-sm-4">
+                                <label class="form-label text-muted">Kuantitas Buku</label>
+                                <!-- TUGAS SISWA: Hubungkan input ini dengan fungsi calculate() menggunakan event handler oninput -->
+                                <input type="number" id="quantity" class="form-control form-control-dark" placeholder="Contoh: 3" min="1">
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label text-muted">Harga per Buku (Rp)</label>
+                                <input type="text" class="form-control form-control-dark" value="50000" disabled>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label text-muted">Total Pembayaran (Rp)</label>
+                                <input type="text" id="total-price" class="form-control form-control-dark bg-dark text-warning fw-bold" value="0" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 text-muted border-top border-secondary text-end fs-7">
+                        *Perhitungan dilakukan secara asinkron/langsung melalui event handler input.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- EKSPERIMEN VARIABEL (UNTUK PLAYGROUND KONSOL) -->
+        <div class="card glass-card mt-5 p-4">
+            <h5 class="fw-bold mb-3">6. Playground Eksperimen Variabel (var, let, const)</h5>
+            <div class="instruction-box mb-3">
+                Silahkan buka Developer Tools di browsermu dengan menekan tombol <strong>Ctrl + Shift + J</strong> (Windows/Linux) atau <strong>Cmd + Option + C</strong> (Mac). Tuliskan skrip pengujian variabel pada tag <code>&lt;script&gt;</code> di bawah dan perhatikan hasil log atau pesan eror yang muncul.
+            </div>
+            <ul>
+                <li><strong>Eksperimen 1:</strong> Deklarasikan ulang variabel <code>var</code>, cek apakah nilainya terupdate tanpa eror.</li>
+                <li><strong>Eksperimen 2:</strong> Coba deklarasikan ulang variabel <code>let</code>, amati pesan eror <code>SyntaxError</code>.</li>
+                <li><strong>Eksperimen 3:</strong> Coba ubah nilai variabel <code>const</code>, amati pesan eror <code>TypeError</code>.</li>
+                <li><strong>Eksperimen 4:</strong> Uji keluaran dialog menggunakan <code>window.alert()</code> dan tampilkan pesan di konsol menggunakan <code>console.log()</code>.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- LEMBAR KERJA JAVASCRIPT: TEMPAT SISWA MENULIS KODE LOGIKA JAVASCRIPT MEREKA -->
+    <!-- ========================================================================= -->
+    <script>
+        // ==========================================
+        // [MISI 1]: Mengubah Konten HTML (Change HTML Content)
+        // Hubungkan Tombol "#btn-change-title" agar saat diklik dapat mengganti judul "#store-title" di Navbar.
+        // ==========================================
+        
+
+
+        // ==========================================
+        // [MISI 2]: Mengubah Atribut Gambar (Change HTML Attribute)
+        // Hubungkan Tombol "#btn-color-image" dan "#btn-bw-image" agar saat diklik dapat mengganti
+        // tautan properti src pada gambar "#myImage" (Burung Berwarna vs Hitam Putih).
+        // URL Berwarna: https://cdn-icons-png.flaticon.com/128/3069/3069186.png
+        // URL Hitam Putih: https://cdn-icons-png.flaticon.com/128/3069/3069114.png
+        // ==========================================
+        
+
+
+        // ==========================================
+        // [MISI 3]: Mengubah Gaya CSS (Change HTML Style)
+        // Hubungkan Tombol "#btn-red-text" dan "#btn-blue-text" agar saat diklik dapat mengubah
+        // warna teks dari judul promo "#promo-text" menjadi merah ('red') atau biru ('blue').
+        // ==========================================
+        
+
+
+        // ==========================================
+        // [MISI 4]: Menampilkan & Menyembunyikan Elemen (Show/Hide)
+        // Hubungkan Tombol "#btn-hide-coupon" dan "#btn-show-coupon" agar saat diklik dapat mengatur
+        // properti display pada elemen kupon "#promo-coupon" (none untuk sembunyi, block untuk muncul).
+        // ==========================================
+        
+
+
+        // ==========================================
+        // [MISI 5]: Logika Perhitungan Matematika (Computation)
+        // Selesaikan fungsi calculate() di bawah ini untuk mengalikan input kuantitas (#quantity)
+        // dengan harga buku konstan (50000). Kemudian, tampilkan hasilnya di input total harga (#total-price).
+        // Jangan lupa untuk memicu fungsi ini menggunakan event handler 'oninput' pada elemen input kuantitas!
+        // ==========================================
+        function calculate() {
+            // Tulis logika perkalian di sini
+            
+        }
+
+        // ==========================================
+        // [EKSPERIMEN VARIABEL]: Tulis eksperimen variabel (var, let, const) di bawah ini
+        // untuk mengamati perilakunya di console browser.
+        // ==========================================
+        
+    </script>
+</body>
+</html>
