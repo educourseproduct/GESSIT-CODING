@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<produk>
+    <item>
+        <judul>Attack on Titan</judul>
+        <genre>Action</genre>
+        <rating>8.82</rating>
+    </item>
+    <item>
+        <judul>One Piece</judul>
+        <genre>Adventure</genre>
+        <rating>8.72</rating>
+    </item>
+    <item>
+        <judul>KonoSuba: God's Blessing on this Wonderful World!</judul>
+        <genre>Comedy</genre>
+        <rating>8.13</rating>
+    </item>
+</produk>
