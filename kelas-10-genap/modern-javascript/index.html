@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Watchlist Dashboard - Sesi 14</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #090d16 0%, #111827 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            padding-bottom: 3rem;
+        }
+        
+        .navbar-custom {
+            background-color: rgba(9, 13, 22, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(31, 41, 55, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #f8fafc;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-custom-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            color: white;
+        }
+
+        .btn-custom-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-success:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            color: white;
+        }
+
+        .form-control-dark {
+            background-color: rgba(17, 24, 39, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .form-control-dark:focus {
+            background-color: rgba(17, 24, 39, 0.9);
+            border-color: #6366f1;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+            color: white;
+        }
+
+        .form-select-dark {
+            background-color: rgba(17, 24, 39, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .form-select-dark:focus {
+            background-color: rgba(17, 24, 39, 0.9);
+            border-color: #6366f1;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+            color: white;
+        }
+
+        .instruction-box {
+            border-left: 4px solid #818cf8;
+            background: rgba(129, 140, 248, 0.05);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        /* High-contrast text override for accessibility */
+        .text-muted {
+            color: #cbd5e1 !important;
+        }
+
+        .anime-card {
+            border-radius: 12px;
+            background: rgba(17, 24, 39, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .anime-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(17, 24, 39, 0.7);
+        }
+
+        .badge-watching {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+        .badge-completed {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+        .badge-plan {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark navbar-custom px-3 py-3 mb-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="navbar-brand mb-0 h1 fw-bold fs-3 gradient-text">EduStream Tracker</span>
+            <span class="badge text-light px-3 py-2" style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4)">Sesi 14 - Kelas X SMA</span>
+        </div>
+    </nav>
+
+    <!-- CONTENT CONTAINER -->
+    <div class="container">
+        
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Otaku Watchlist Dashboard</h2>
+            <p class="text-muted">Gunakan syntax modern ES6+ seperti <code>class</code>, <code>Set</code>, <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>find</code>, dan <code>findIndex</code> untuk mengelola watchlist anime secara dinamis.</p>
+        </div>
+
+        <!-- STATS & INFO BAR -->
+        <div class="row g-4 mb-4 text-center">
+            <div class="col-md-6 col-lg-3">
+                <div class="card glass-card p-3">
+                    <span class="text-uppercase font-monospace text-muted fs-7">Total Anime</span>
+                    <h3 id="total-anime" class="fw-bold m-0 mt-1 gradient-text">0</h3>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card glass-card p-3">
+                    <span class="text-uppercase font-monospace text-muted fs-7">Total Episode</span>
+                    <h3 id="total-episodes" class="fw-bold m-0 mt-1 text-info">0</h3>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card glass-card p-3">
+                    <span class="text-uppercase font-monospace text-muted fs-7">Rata-rata Rating</span>
+                    <h3 id="avg-rating" class="fw-bold m-0 mt-1 text-warning">0.0</h3>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card glass-card p-3">
+                    <span class="text-uppercase font-monospace text-muted fs-7">Rata-rata cbrt Rating</span>
+                    <h3 id="cbrt-rating" class="fw-bold m-0 mt-1 text-purple" style="color: #c084fc;">0.0</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- LEFT PANEL: CONTROLS & ADD FORM -->
+            <div class="col-lg-4">
+                <!-- FORM: TAMBAH ANIME -->
+                <div class="card glass-card p-4 mb-4">
+                    <h5 class="fw-bold mb-3">Tambah Anime Baru</h5>
+                    <div class="instruction-box mb-3">
+                        Gunakan ES6 <code>class</code> untuk instansiasi objek dan validasi angka integer aman untuk input episode.
+                    </div>
+                    
+                    <form id="form-anime" onsubmit="return false;">
+                        <div class="mb-3">
+                            <label class="form-label font-monospace fs-7">Judul Anime</label>
+                            <input type="text" id="add-judul" class="form-control form-control-dark" placeholder="Contoh: Demon Slayer" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-monospace fs-7">Genre</label>
+                            <input type="text" id="add-genre" class="form-control form-control-dark" placeholder="Contoh: Action" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-monospace fs-7">Total Episode</label>
+                            <input type="number" id="add-episode" class="form-control form-control-dark" placeholder="Contoh: 26" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label font-monospace fs-7">Rating (1-10)</label>
+                            <input type="number" id="add-rating" min="1" max="10" step="0.1" class="form-control form-control-dark" placeholder="Contoh: 8.7" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label font-monospace fs-7">Status Tontonan</label>
+                            <select id="add-status" class="form-select form-select-dark">
+                                <option value="Watching">Watching</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Plan to Watch">Plan to Watch</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" id="btn-add-anime" class="btn btn-custom-success w-100 fw-bold py-2">
+                            Tambah Ke Watchlist
+                        </button>
+                    </form>
+                </div>
+
+                <!-- CARD PENCARIAN ANTREAN: FIND & FINDINDEX -->
+                <div class="card glass-card p-4">
+                    <h5 class="fw-bold mb-3">Cek Posisi Antrean</h5>
+                    <div class="instruction-box mb-3">
+                        Gunakan <code>.find()</code> untuk detail item dan <code>.findIndex()</code> untuk mengetahui nomor antrean anime.
+                    </div>
+                    
+                    <div class="mb-3">
+                        <input type="text" id="search-info-input" class="form-control form-control-dark" placeholder="Cari nama anime...">
+                    </div>
+                    <button id="btn-search-info" class="btn btn-custom-primary w-100 fw-bold py-2 mb-3">Cari Posisi</button>
+                    
+                    <div class="alert alert-secondary py-2 m-0 text-center text-light font-monospace fs-7" style="background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1);">
+                        <span id="search-info-result">Masukkan judul anime di atas.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: SEARCH, FILTERS & WATCHLIST GRID -->
+            <div class="col-lg-8">
+                <!-- CONTROLS FILTER -->
+                <div class="card glass-card p-4 mb-4">
+                    <div class="row g-3">
+                        <!-- Search input -->
+                        <div class="col-md-6">
+                            <label class="form-label font-monospace fs-7">Cari Judul Anime</label>
+                            <input type="text" id="search-anime" class="form-control form-control-dark" placeholder="Ketik kata kunci...">
+                        </div>
+                        <!-- Genre filter -->
+                        <div class="col-md-3">
+                            <label class="form-label font-monospace fs-7">Genre</label>
+                            <select id="genre-filter" class="form-select form-select-dark">
+                                <option value="all">Semua Genre</option>
+                                <!-- Render genre unik menggunakan Set di sini -->
+                            </select>
+                        </div>
+                        <!-- Status filter -->
+                        <div class="col-md-3">
+                            <label class="form-label font-monospace fs-7">Status</label>
+                            <select id="status-filter" class="form-select form-select-dark">
+                                <option value="all">Semua Status</option>
+                                <option value="Watching">Watching</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Plan to Watch">Plan to Watch</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WATCHLIST GRID CONTAINER -->
+                <div class="row g-3" id="watchlist-container">
+                    <!-- Target rendering visual anime card oleh .map() -->
+                    <div class="col-12 text-center text-muted py-5">
+                        Memuat daftar anime...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- LEMBAR KERJA JAVASCRIPT: TEMPAT SISWA MENULIS KODE LOGIKA JAVASCRIPT MEREKA -->
+    <!-- ========================================================================= -->
+    <script>
+        // ==========================================
+        // DATA AWAL (Array of Objects Anime)
+        // ==========================================
+        // Daftar data awal anime bawaan dashboard
+        let animeData = [
+            { judul: "Frieren: Beyond Journey's End", genre: "Fantasy", episode: 28, rating: 9.39, status: "Completed" },
+            { judul: "Attack on Titan", genre: "Action", episode: 75, rating: 8.82, status: "Completed" },
+            { judul: "Demon Slayer: Hashira Training Arc", genre: "Action", episode: 8, rating: 8.44, status: "Watching" },
+            { judul: "Solo Leveling", genre: "Fantasy", episode: 12, rating: 8.35, status: "Watching" },
+            { judul: "One Piece", genre: "Adventure", episode: 1100, rating: 8.72, status: "Watching" },
+            { judul: "KonoSuba", genre: "Comedy", episode: 10, rating: 8.13, status: "Plan to Watch" }
+        ];
+
+
+        // ==========================================
+        // [MISI 1.1]: Membuat Class Anime
+        // Selesaikan pembuatan class Anime dengan constructor yang sesuai.
+        // ==========================================
+        class Anime {
+            // Tulis Constructor Class Anime di sini
+            
+        }
+
+
+        // ==========================================
+        // [MISI 1.2]: Inisialisasi Dropdown Filter Genre Dinamis (new Set)
+        // Kumpulkan genre unik menggunakan Set dari array animeData, lalu masukkan
+        // opsi pilihan ke elemen dropdown "#genre-filter".
+        // ==========================================
+        function initGenreFilter() {
+            const genreSelect = document.getElementById('genre-filter');
+            
+            // 1. Ekstrak genre, buat Set, dan ubah kembali ke Array
+            
+            
+            // 2. Bersihkan dropdown kecuali opsi pertama ("Semua Genre")
+            
+            
+            // 3. Render pilihan genre baru menggunakan perulangan ke dropdown
+            
+        }
+
+
+        // ==========================================
+        // [MISI 2]: Rendering Antarmuka Watchlist (.map)
+        // Transformasikan array data anime menjadi deretan kartu HTML, lalu masukkan ke dalam "#watchlist-container".
+        // Gunakan pencarian string ES6 seperti .includes() atau .startsWith() secara kondisional.
+        // ==========================================
+        function renderWatchlist(data) {
+            const container = document.getElementById('watchlist-container');
+            
+            // 1. Validasi jika data kosong
+            
+            
+            // 2. Gunakan .map() untuk merubah array menjadi format html card
+            // Hint: Tentukan kelas lencana badge status (badge-watching, badge-completed, atau badge-plan)
+            // Terapkan Math.trunc() untuk membuang angka desimal di rating
+            const cardsHTML = data.map(anime => {
+                let badgeClass = "badge-plan";
+                if (anime.status === "Watching") badgeClass = "badge-watching";
+                if (anime.status === "Completed") badgeClass = "badge-completed";
+                
+                // Gunakan template literal untuk mengembalikan baris HTML kartu
+                
+            });
+            
+            // 3. Gabungkan array string html dengan .join("") dan pasang ke container
+            
+        }
+
+
+        // ==========================================
+        // [MISI 3]: Menyaring Data Anime (.filter & String Methods)
+        // Selesaikan logika filter pencarian teks serta dropdown genre dan status.
+        // ==========================================
+        function applyFilters() {
+            const keyword = document.getElementById('search-anime').value.toLowerCase().trim();
+            const genre = document.getElementById('genre-filter').value;
+            const status = document.getElementById('status-filter').value;
+            
+            // Lakukan .filter() pada animeData
+            const filtered = animeData.filter(anime => {
+                // Evaluasi filter genre
+                
+                
+                // Evaluasi filter status
+                
+                
+                // Evaluasi filter kata kunci pencarian pada judul anime (Gunakan string method .includes() atau .startsWith())
+                
+                
+                return matchGenre && matchStatus && matchSearch;
+            });
+            
+            // Render data hasil filter
+            renderWatchlist(filtered);
+        }
+
+        // Ikat fungsi applyFilters ke event listener input dan select
+        document.getElementById('search-anime').addEventListener('input', applyFilters);
+        document.getElementById('genre-filter').addEventListener('change', applyFilters);
+        document.getElementById('status-filter').addEventListener('change', applyFilters);
+
+
+        // ==========================================
+        // [MISI 4]: Menghitung Akumulasi Episode Ditonton (.reduce) & Statistik Lainnya
+        // Hitung total akumulasi seluruh episode anime yang ada dalam daftar menggunakan .reduce()
+        // ==========================================
+        function updateStatistics() {
+            const totalAnimeElem = document.getElementById('total-anime');
+            const totalEpElem = document.getElementById('total-episodes');
+            const avgRatingElem = document.getElementById('avg-rating');
+            const cbrtRatingElem = document.getElementById('cbrt-rating');
+            
+            // 1. Tampilkan total anime
+            
+            
+            // 2. Hitung total episode menggunakan .reduce()
+            
+            
+            // 3. Hitung rata-rata rating (gunakan .reduce() dan hitung rata-rata)
+            
+            
+            // 4. Hitung nilai cbrt (akar pangkat tiga) dari rata-rata rating menggunakan Math.cbrt()
+            
+        }
+
+
+        // ==========================================
+        // [MISI 5]: Detail Pencarian & Posisi Antrean (.find & .findIndex)
+        // Hubungkan tombol "#btn-search-info" agar memicu pencarian detail objek dan posisi antreannya.
+        // ==========================================
+        document.getElementById('btn-search-info').onclick = function() {
+            const keyword = document.getElementById('search-info-input').value.toLowerCase().trim();
+            const resultElem = document.getElementById('search-info-result');
+            
+            if (keyword === "") {
+                resultElem.innerHTML = "<span class='text-danger'>Masukkan kata kunci judul!</span>";
+                return;
+            }
+            
+            // 1. Gunakan .find() untuk mencari objek anime yang judulnya cocok
+            
+            
+            // 2. Gunakan .findIndex() untuk mencari index antrean anime tersebut
+            
+            
+            // 3. Render hasilnya ke resultElem
+            
+        };
+
+
+        // ==========================================
+        // [MISI TAMBAHAN]: Tambah Anime & Validasi Angka Aman (Number API & Math API)
+        // Selesaikan fungsi penambahan data anime baru ke dalam array utama.
+        // ==========================================
+        document.getElementById('btn-add-anime').onclick = function() {
+            const judul = document.getElementById('add-judul').value.trim();
+            const genre = document.getElementById('add-genre').value.trim();
+            const episodeStr = document.getElementById('add-episode').value;
+            const ratingStr = document.getElementById('add-rating').value;
+            const status = document.getElementById('add-status').value;
+            
+            if (!judul || !genre || !episodeStr || !ratingStr) {
+                alert("Semua input form tambah anime harus diisi!");
+                return;
+            }
+            
+            const episode = parseFloat(episodeStr);
+            const rating = parseFloat(ratingStr);
+            
+            // 1. Validasi integer untuk episode menggunakan Number.isInteger()
+            
+            
+            // 2. Validasi range rating 1 - 10
+            
+            
+            // 3. Instansiasi Class Anime
+            
+            
+            // 4. Masukkan ke array utama
+            
+            
+            // 5. Reset input form, perbarui antarmuka, inisialisasi filter genre, perbarui statistik
+            
+        };
+
+
+        // ==========================================
+        // INISIALISASI HALAMAN AWAL
+        // ==========================================
+        // Jalankan render awal saat halaman pertama kali dibuka
+        initGenreFilter();
+        renderWatchlist(animeData);
+        updateStatistics();
+    </script>
+</body>
+</html>
