@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Transaksi Interaktif - Sesi 13</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            padding-bottom: 3rem;
+        }
+        
+        .navbar-custom {
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #f8fafc;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-custom-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+            color: white;
+        }
+
+        .btn-custom-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-control-dark {
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .form-control-dark:focus {
+            background-color: rgba(15, 23, 42, 0.8);
+            border-color: #6366f1;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+            color: white;
+        }
+
+        .instruction-box {
+            border-left: 4px solid #818cf8;
+            background: rgba(129, 140, 248, 0.05);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .text-muted {
+            color: #cbd5e1 !important;
+        }
+
+        .table-custom {
+            color: #f8fafc;
+        }
+        .table-custom th {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15) !important;
+            color: #818cf8;
+        }
+        .table-custom td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark navbar-custom px-3 py-3 mb-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="navbar-brand mb-0 h1 fw-bold fs-3 gradient-text">EduCourse Bookstore</span>
+            <span class="badge bg-indigo text-light border border-indigo px-3 py-2" style="background: rgba(99, 102, 241, 0.2)">Sesi 13 - Kelas X SMA</span>
+        </div>
+    </nav>
+
+    <!-- CONTENT CONTAINER -->
+    <div class="container">
+        
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Riwayat Transaksi Interaktif</h2>
+            <p class="text-muted">Lembar kerja praktikum siswa untuk mendalami metode iterasi array modern (.forEach, .find, .some, .every, dan .includes).</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- LEFT COLUMN: TABEL RIWAYAT & CHECKOUT -->
+            <div class="col-lg-7">
+                <!-- CARD TABLE: FOREACH & SOME -->
+                <div class="card glass-card p-4 mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold m-0">1. Daftar Keranjang Belanja</h5>
+                        <!-- Misi 4: Pemicu Bonus (some) -->
+                        <span id="bonus-notification" class="badge bg-success p-2" style="display: none; background-color: #22c55e !important; box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);">
+                            🎁 Bonus Buku Catatan!
+                        </span>
+                    </div>
+                    
+                    <div class="instruction-box mb-3">
+                        Gunakan method <code>.forEach()</code> untuk menelusuri data transaksi belanjaan (array of objects) dan merendernya secara dinamis ke baris tabel di bawah.
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-custom m-0">
+                            <thead>
+                                <tr>
+                                    <th>Nama Barang</th>
+                                    <th>Harga Satuan</th>
+                                    <th>Kuantitas</th>
+                                </tr>
+                            </thead>
+                            <!-- Target rendering baris tabel id="transaction-rows" -->
+                            <tbody id="transaction-rows">
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted">Belum ada data belanjaan ter-render.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- CARD CHECKOUT: EVERY -->
+                <div class="card glass-card p-4">
+                    <h5 class="fw-bold mb-2">2. Verifikasi Transaksi & Checkout</h5>
+                    <div class="instruction-box mb-4">
+                        Gunakan method <code>.every()</code> untuk memvalidasi apakah seluruh barang belanjaan di keranjang memiliki kuantitas minimal 1 sebelum mengizinkan checkout.
+                    </div>
+                    <button class="btn btn-custom-primary w-100 py-3 fw-bold fs-5" id="btn-checkout">
+                        Checkout Belanjaan
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: SEARCH & VOUCHER -->
+            <div class="col-lg-5">
+                <!-- CARD SEARCH: FIND -->
+                <div class="card glass-card p-4 mb-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-2">3. Pencarian Detail Barang</h5>
+                        <div class="instruction-box mb-4">
+                            Gunakan method <code>.find()</code> untuk mencari detail harga & kuantitas barang belanjaan berdasarkan nama barang (case-insensitive).
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <input type="text" id="search-input" class="form-control form-control-dark" placeholder="Masukkan nama barang... (Contoh: Buku JS)">
+                            <button class="btn btn-custom-primary fw-bold" id="btn-search">Cari</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Target output hasil pencarian id="search-result" -->
+                    <div class="alert alert-info border-info m-0 mt-2 py-3" style="background: rgba(14, 165, 233, 0.1); color: #38bdf8;">
+                        <span class="fs-6 d-block text-uppercase fw-semibold">Hasil Pencarian:</span>
+                        <div id="search-result" class="mt-1 font-monospace">-</div>
+                    </div>
+                </div>
+
+                <!-- CARD VOUCHER: INCLUDES -->
+                <div class="card glass-card p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="fw-bold mb-2">4. Verifikasi Voucher Promo</h5>
+                        <div class="instruction-box mb-4">
+                            Gunakan method <code>.includes()</code> untuk memverifikasi apakah kode voucher diskon yang dimasukkan ada di dalam daftar voucher aktif toko.
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <input type="text" id="coupon-input" class="form-control form-control-dark" placeholder="Contoh: PROMO10">
+                            <button class="btn btn-success fw-bold" id="btn-verify-coupon">Verifikasi</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Target output hasil voucher id="coupon-result" -->
+                    <div id="coupon-result" class="mt-2">
+                        <div class="alert alert-secondary border-secondary py-2 m-0 text-center" style="background: rgba(255, 255, 255, 0.03); color: #cbd5e1;">
+                            Belum ada kupon yang dimasukkan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- LEMBAR KERJA JAVASCRIPT: TEMPAT SISWA MENULIS KODE LOGIKA JAVASCRIPT MEREKA -->
+    <!-- ========================================================================= -->
+    <script>
+        // ==========================================
+        // DATA AWAL (Array of Objects & Array of Strings)
+        // ==========================================
+        // Data belanjaan di keranjang
+        let keranjangBelanja = [
+            { nama: "Novel Fiksi", harga: 45000, kuantitas: 2 },
+            { nama: "Buku Pemrograman JS", harga: 120000, kuantitas: 1 },
+            { nama: "Komik Manga", harga: 35000, kuantitas: 3 },
+            { nama: "Majalah Sains", harga: 55000, kuantitas: 1 }
+        ];
+
+        // Daftar kode voucher aktif
+        const voucherAktif = ["PROMO10", "HEMAT20", "BUKUKREATIF10", "MERDEKA50"];
+
+
+        // ==========================================
+        // [MISI 1]: Merender Tabel Belanjaan (forEach) & [MISI 4]: Deteksi Barang Premium (some)
+        // Selesaikan fungsi renderTransaksi() di bawah.
+        // Logika forEach:
+        // 1. Kosongkan baris tabel "#transaction-rows".
+        // 2. Lakukan iterasi pada keranjangBelanja menggunakan .forEach() untuk menyusun baris <tr>.
+        // 3. Tambahkan baris baru tersebut ke dalam "#transaction-rows".
+        //
+        // Logika some:
+        // 1. Gunakan .some() untuk mendeteksi apakah ada barang dengan harga > 100000.
+        // 2. Jika ada, tampilkan elemen "#bonus-notification" (style.display = "inline-block").
+        // 3. Jika tidak ada, sembunyikan (style.display = "none").
+        // ==========================================
+        function renderTransaksi() {
+            const tableRows = document.getElementById('transaction-rows');
+            const bonusNotif = document.getElementById('bonus-notification');
+            
+            // Tulis kodingan forEach dan some kamu di bawah ini
+            
+        }
+
+        // Panggil fungsi renderTransaksi agar data langsung tampil saat halaman dimuat
+        renderTransaksi();
+
+
+        // ==========================================
+        // [MISI 2]: Pencarian Detail Barang (find)
+        // Hubungkan tombol "#btn-search" agar saat diklik mencari barang berdasarkan input "#search-input".
+        // Logika: Gunakan .find() pada keranjangBelanja untuk mencari barang dengan nama cocok (case-insensitive).
+        // Jika ditemukan, tampilkan detail di "#search-result". Jika tidak, tampilkan pesan error.
+        // ==========================================
+        
+
+
+        // ==========================================
+        // [MISI 3]: Cek Kode Voucher Aktif (includes)
+        // Hubungkan tombol "#btn-verify-coupon" agar saat diklik memverifikasi input "#coupon-input".
+        // Logika: Gunakan .includes() pada array voucherAktif untuk memverifikasi.
+        // Jika valid (true), tampilkan alert sukses warna hijau di "#coupon-result".
+        // Jika tidak valid (false), tampilkan alert gagal warna merah di "#coupon-result".
+        // ==========================================
+        
+
+
+        // ==========================================
+        // [MISI 5]: Validasi Kelayakan Checkout (every)
+        // Hubungkan tombol "#btn-checkout" agar saat diklik memicu validasi checkout.
+        // Logika: Gunakan .every() pada keranjangBelanja untuk memeriksa apakah semua kuantitas > 0.
+        // Jika ya, tampilkan window.alert() sukses. Jika tidak, tampilkan alert gagal.
+        // ==========================================
+        
+    </script>
+</body>
+</html>
