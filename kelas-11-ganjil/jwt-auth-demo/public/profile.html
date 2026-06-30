@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna - Terproteksi</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e293b;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #38bdf8;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+        .welcome-card {
+            background-color: #0f172a;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            margin-bottom: 1.5rem;
+        }
+        p {
+            color: #94a3b8;
+            margin: 0 0 1rem 0;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e11d48;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #be123c;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-card">
+            <h1 id="welcome">Loading...</h1>
+            <p>Anda berhasil masuk ke halaman profil yang terproteksi oleh token JWT.</p>
+        </div>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        async function loadProfile() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = "/";
+                return;
+            }
+            try {
+                const res = await fetch("/api/profile", {
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    }
+                });
+                if (!res.ok) {
+                    localStorage.removeItem('token');
+                    window.location.href = "/";
+                    return;
+                }
+                const data = await res.json();
+                document.getElementById("welcome").innerText = "Hi " + data.username;
+            } catch (err) {
+                console.error("Error loading profile:", err);
+                localStorage.removeItem('token');
+                window.location.href = "/";
+            }
+        }
+
+        async function logout() {
+            try {
+                await fetch("/api/logout", { method: "POST" });
+            } catch (err) {
+                console.error("Logout request failed:", err);
+            }
+            localStorage.removeItem('token');
+            window.location.href = "/";
+        }
+
+        loadProfile();
+    </script>
+</body>
+</html>

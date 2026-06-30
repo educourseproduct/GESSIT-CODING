@@ -1,0 +1,26 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+body { background: #f4f7f6; color: #333; }
+
+/* Auth Page */
+.auth-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+.form-box { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; text-align: center; }
+.form-box input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+.form-box button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.toggle-text { margin-top: 15px; font-size: 0.9rem; }
+
+/* Dashboard */
+nav { background: #007bff; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+nav button { background: #dc3545; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; }
+.container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+.add-task-box, .task-list-box { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+.add-task-box input, .add-task-box textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
+.add-task-box button { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+
+/* Task List */
+ul { list-style: none; }
+li { background: #f8f9fa; border-left: 5px solid #007bff; padding: 15px; margin-bottom: 10px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+li.done { border-left-color: #28a745; opacity: 0.7; }
+li.in-progress { border-left-color: #ffc107; }
+.task-actions button { margin-left: 5px; padding: 5px 10px; border: none; border-radius: 4px; cursor: pointer; color: white; }
+.btn-delete { background: #dc3545; }
+.btn-edit { background: #17a2b8; }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Biodata Pelajar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <h2>Formulir Biodata Pelajar</h2>
+        <form method="POST">
+            <div class="input-box">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Contoh: Nama" id="nama" required>
+            </div>
+            <div class="input-box">
+                <label>Nama Sekolah</label>
+                <input type="text" placeholder="Contoh: SMKN 1" id="sekolah" required>
+            </div>
+            <div class="input-box">
+                <label>Email Aktif</label>
+                <input type="email" placeholder="Contoh: educourse@gmail.com" id="email" required>
+            </div>
+            <div class="input-box">
+                <label>Tanggal Lahir</label>
+                <input type="date" id="tglLahir" required>
+            </div>
+            <div class="input-box">
+                <label>Jumlah Saudara</label>
+                <input type="number" min="0" id="saudara" required>
+            </div>
+            <div class="input-radio">
+                <label>Jenis Kelamin:</label>
+                <input type="radio" name="gender" id="pria" value="pria" required>
+                <label for="pria">Pria</label>
+                <input type="radio" name="gender" id="wanita" value="wanita" required>
+                <label for="wanita">Wanita</label>
+            </div>
+            <div class="input-box">
+                <label>Kota tempat tinggal</label>
+                <input type="text" placeholder="Contoh: Semarang" id="kota" required>
+            </div>
+            <div class="input-box">
+                <label>No Telp</label>
+                <input type="text" placeholder="Contoh: 08XXXXXXXXX" id="telepon" required>
+            </div>
+            <button type="submit">Kirim Data</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

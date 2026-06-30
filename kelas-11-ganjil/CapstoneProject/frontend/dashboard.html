@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">📝 Taskify</div>
+        <div class="user-info">
+            <span id="welcome-user">Hi, User!</span>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="add-task-box">
+            <h2>Tambah Tugas Baru</h2>
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Judul Tugas" required>
+                <textarea id="task-desc" placeholder="Deskripsi (Opsional)"></textarea>
+                <button type="submit">Tambah</button>
+            </form>
+        </div>
+
+        <div class="task-list-box">
+            <h2>Daftar Tugas Saya</h2>
+            <ul id="task-list">
+                <!-- Tasks will be injected here by JS -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
